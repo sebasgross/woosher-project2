@@ -1,0 +1,50 @@
+html {
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.signupPage {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px; }
+
+.signup-container {
+  padding-top: 20px;
+  border: 1px solid #abecfc;
+  width: 800px;
+  height: 550px; }
+
+.btn {
+  position: relative;
+  top: 15px;
+  background-color: #0d4a68; }
+
+.input-field label {
+  color: #abecfc; }
+
+.loginpage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 25px; }
+
+.login-container {
+  border: 1px solid #abecfc;
+  height: 350px;
+  width: 380px;
+  justify-content: center; }
+
+.login-container h4 {
+  color: #0d4a68;
+  padding-left: 20px; }
+
+.signup-container h4 {
+  color: #0d4a68;
+  padding-left: 30px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,8 +1,58 @@
+html{
+  margin: 0px;
+  padding:0px;
+}
 body {
-  padding: 50px;
+
+  // padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+.signupPage{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+.signup-container{
+  // justify-content: center;
+  padding-top: 20px;
+  border: 1px solid rgb(171, 236, 252);
+  width: 800px;
+  height: 550px;
+  // top: 25px;
+  // left: px;
+}
+.btn{
+  position: relative;
+  top: 15px;
+  background-color: rgb(13, 74, 104);
+}
+
+.input-field label {
+  color: rgb(171, 236, 252);
+}
+.loginpage{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+.login-container{
+  border: 1px solid rgb(171, 236, 252);
+
+  height: 350px;
+  width: 380px;
+  justify-content: center;
+
+}
+.login-container h4{
+  color: rgb(13, 74, 104);
+  padding-left: 20px;
+}
+.signup-container h4{
+  color: rgb(13, 74, 104);
+  padding-left: 30px;
 }

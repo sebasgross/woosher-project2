@@ -12,7 +12,7 @@ const passport = require('./helpers/passport')
 const session = require('express-session')
 
 mongoose
-  .connect('mongodb://localhost/woosher-ironhackproject2', {useNewUrlParser: true})
+  .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -76,7 +76,9 @@ function isLogged(req, res, next) {
 //
 
 const index = require('./routes/index');
-app.use('/', index);
+const auth = require('./routes/auth')
+app.use('/', isLogged, auth)
+app.use('/', isLogged, index);
 
 
 module.exports = app;
