@@ -10,14 +10,32 @@ const serviceSchema = new Schema(
         
         worker:{
             type: Schema.Types.ObjectId,
-            ref="User"
+            ref:"User"
         },
+        active:{
+            type: Boolean,
+            default: false
+        },
+        addressFrom: {
+            location: {
+              type: Schema.Types.ObjectId,
+              ref: 'User',
+            },
+            coordinates: []
+          },
+          addressFrom:{
+            location: {
+                type: Schema.Types.ObjectId,
+                ref: 'User',
+              },
+              coordinatesTo: []     
+          },
         requestDate:{
             type: Date,
             required: true
         }
         
-    }
+    } , {timestamps: true}
 )
 
 module.exports = mongoose.model("Service", serviceSchema)

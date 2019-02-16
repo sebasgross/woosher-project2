@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>My First Map</title>
+
+    
+  </head>
+  <body>
+    <h3>My First Map</h3>
+
+    <div id="map"></div>
+
+
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAibPXhN5vurQTn4TKhQffz-uHeNJT-Nro&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAibPXhN5vurQTn4TKhQffz-uHeNJT-Nro"></script>
+
+  </body>
+</html>
+<style>
+       #map {
+        height: 500px;
+        width: 100%;
+       }
+       #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
+
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+    </style>
+<script>
+
+const directionsService = new google.maps.DirectionsService;
+const directionsDisplay = new google.maps.DirectionsRenderer; 
+
+
+
+    function startMap() {
+  const whoosherLoc = {
+  	lat: 41.3977381,
+  	lng: 2.190471916};
+  const map = new google.maps.Map(
+    document.getElementById('map'),
+    {
+      zoom: 5,
+      center: whoosherLoc
+    }
+  );
+}
+   function initAutocomplete() {
+        let map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13,
+          mapTypeId: 'roadmap'
+        });
+   }
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+
+startMap()
+
+</script>

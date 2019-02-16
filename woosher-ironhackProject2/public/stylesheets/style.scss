@@ -56,3 +56,33 @@ a {
   color: rgb(13, 74, 104);
   padding-left: 30px;
 }
+.servicePage{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
+
+}
+.service-container{
+  font-size: 120%;
+  border: 1px solid rgb(171, 236, 252);
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+  width: 620px;
+  height: 520px;
+  // display: flex;
+  // justify-content: center;
+  color: rgb(13, 74, 104);
+}
+#serviceHeading{
+  padding-top:25px;
+  // display: flex;
+  // justify-content: center;
+  color: rgb(13, 74, 104);
+  text-decoration: underline;
+}
+.service-container div{
+  
+}
