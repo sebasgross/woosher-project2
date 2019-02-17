@@ -20,12 +20,11 @@ const userSchema = new Schema(
 
     isWorker:{
       type: Boolean,
-      default: null
+      default: false,
     },
     photoURL: {
       type: String,
-      default:
-        '',
+      default: '',
     },
 
   } , {timestamps:true}
