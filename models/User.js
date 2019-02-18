@@ -6,12 +6,18 @@ const userSchema = new Schema({
 
   name: {
     type: String,
-    required: true,
+    required: {
+      type: Boolean,
+      default: true,
+    },
   },
 
   lastName:{
     type: String,
-    required: true,
+    required: {
+      type: Boolean,
+      default: true,
+    },
   },
 
   address: String,
@@ -24,6 +30,10 @@ const userSchema = new Schema({
 
   photoURL: {
     type: String,
+    required: {
+      type: Boolean,
+      default: false,
+    },
     default: 'images/user',
   },
 

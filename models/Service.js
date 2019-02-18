@@ -6,11 +6,19 @@ const serviceSchema = new Schema({
       user: {
         type: Schema.Types.ObjectId,
         ref: "User",
+        required: {
+          type: Boolean,
+          default: true,
+        },
       },
 
       worker: {
         type: Schema.Types.ObjectId,
         ref:"User",
+        required: {
+          type: Boolean,
+          default: true,
+        },
       },
 
       active: {
@@ -23,8 +31,14 @@ const serviceSchema = new Schema({
           type: Schema.Types.ObjectId,
           ref: 'User',
         },
-        required: true,
-        active: true,
+        required: {
+          type: Boolean,
+          default: true,
+        },
+        active: {
+          type: Boolean,
+          default: true,
+        },
         coordinates: [],
       },
 
@@ -33,13 +47,19 @@ const serviceSchema = new Schema({
           type: Schema.Types.ObjectId,
           ref: 'User',
         },
-        active: false,
+        active: {
+          type: Boolean,
+          default: false,
+        },
         coordinatesTo: [],
       },
 
       requestDate: {
         type: Date,
-        required: true,
+        required: {
+          type: Boolean,
+          default: true,
+        },
       },
 
 },{timestamps:true})

@@ -4,24 +4,36 @@ const Schema = mongoose.Schema
 const reviewSchema = new Schema ({
 
 	user: {
-		required: true,
+		required: {
+			type: Boolean,
+			default: true,
+		},
 		type: Schema.Types.ObjectId,
 		ref: 'User',
 	},
 
 	woosher: {
-		required: true,
+		required: {
+			type: Boolean,
+			default: true,
+		},
 		type: Schema.Types.ObjectId,
 		ref: 'User',
 	},
 
 	reviewText: {
-		required: true,
+		required: {
+			type: Boolean,
+			default: true,
+		},
 		type: String,
 	},
 
 	reviewStars: {
-		required: true,
+		required: {
+			type: Boolean,
+			default: true,
+		},
 		type: Number,
 		enum: [1,2,3,4,5],
 		default: 5,
