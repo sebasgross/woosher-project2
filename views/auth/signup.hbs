@@ -1,0 +1,66 @@
+{{!-- <section class="signup-container">
+    <div>
+        <h3>Sign up</h3>
+        <form action="/signup" method="POST">
+            <p> Name:</p>
+            <input type="text" name="name">
+            <p> Last name:</p>
+            <input type="text" name="lastName">
+            <p> Email: </p>
+            <input type="email" name="email">
+            <p> Profile picture: </p>
+            <input type="file" name="photoURL">
+        </form>
+    </div>
+</section> --}}
+<section class="signupPage">
+<section class="signup-container">
+    <h4>Sign up to Woosher</h4>
+
+<div clas="signup-card">
+    <div class="row">
+        <form class="col s12" action="/signup" method="POST">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input  type="text" class="validate" name="name">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate" name="lastName">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 ">
+                    <input id="email" type="email" class="validate" name="email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" name="password">
+                    <label for="password">Password</label>
+                </div>
+                </div>
+                <div>
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Profile pic</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+                </button>
+            </div>
+
+
+        </form>
+    </div>
+    </div>
+</section>
+</section>

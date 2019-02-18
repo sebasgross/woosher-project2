@@ -6,3 +6,135 @@ body {
 a {
   color: #00B7FF;
 }
+html{
+  margin: 0px;
+  padding:0px;
+}
+body {
+
+  // padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.go-back{
+  font-size: 300%;
+  position: absolute;
+  top: 600px;
+  left: 300px; 
+  padding: 25px 130px 25px 190px;
+  margin: -60px;
+  opacity: 0;
+}
+.fourOfour{
+  width: auto;
+  height: 100vh;
+}
+.signupPage{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+.signup-container{
+  // justify-content: center;
+  padding-top: 20px;
+  border: 1px solid rgb(171, 236, 252);
+  width: 800px;
+  height: 550px;
+  // top: 25px;
+  // left: px;
+}
+.btn{
+  position: relative;
+  top: 15px;
+  background-color: rgb(13, 74, 104);
+}
+
+.input-field label {
+  color: rgb(171, 236, 252);
+}
+.loginpage{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+.login-container{
+  border: 1px solid rgb(171, 236, 252);
+
+  height: 350px;
+  width: 380px;
+  justify-content: center;
+
+}
+.login-container h4{
+  color: rgb(13, 74, 104);
+  padding-left: 20px;
+}
+.signup-container h4{
+  color: rgb(13, 74, 104);
+  padding-left: 30px;
+}
+.servicePage{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
+
+}
+.service-container{
+  font-size: 120%;
+  border: 1px solid rgb(171, 236, 252);
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+  width: 620px;
+  height: 520px;
+  // display: flex;
+  // justify-content: center;
+  color: rgb(13, 74, 104);
+}
+#serviceHeading{
+  padding-top:25px;
+  // display: flex;
+  // justify-content: center;
+  color: rgb(13, 74, 104);
+  text-decoration: underline;
+}
+#map {
+  height: 500px;
+  width: 100%;
+ }
+ #pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
