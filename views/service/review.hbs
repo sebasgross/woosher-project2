@@ -1,0 +1,126 @@
+
+<html>
+  <head>
+    <title>My First Map</title>
+
+    
+  </head>
+  <body>
+    <h3>My First Map</h3>
+
+<span class="metadata-marker" style="display: none;" data-region_tag="html-body"></span>    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+
+
+    {{!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAibPXhN5vurQTn4TKhQffz-uHeNJT-Nro&libraries=places"></script> --}}
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAibPXhN5vurQTn4TKhQffz-uHeNJT-Nro"></script>
+        <script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAibPXhN5vurQTn4TKhQffz-uHeNJT-Nro&callback=initMap"></script>
+
+  </body>
+</html>
+<style>
+
+    </style>
+<script>
+
+  function startMap() {
+  let whoosherLoc = {
+  	lat: 25.344,
+  	lng: 131.036};
+  const map = new google.maps.Map(
+    document.getElementById('map'),
+    {
+      zoom: 5,
+      center: whoosherLoc
+    }
+  );
+}
+/*
+
+*/
+
+    // Try to get a geolocation object from the web browser
+
+    // User granted permission
+    // Center the map in the position we got
+
+
+
+startMap()
+
+function initMap() {
+  if (navigator.geolocation) {
+
+  // Get current position
+  // The permissions dialog will pop up
+  navigator.geolocation.getCurrentPosition(function (position) {
+    // Create an object to match Google's Lat-Lng object format
+    const center = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    console.log('center: ', center)
+
+  // The location of Uluru
+  let uluru = {lat: center.lat, lng: center.lng};
+  // The map, centered at Uluru
+  let map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 15, center: uluru});
+  // The marker, positioned at Uluru
+  let marker = new google.maps.Marker({position: uluru, map: map});
+
+
+})
+  }
+}
+
+
+   var searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
+   map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('pac-input'));
+   google.maps.event.addListener(searchBox, 'places_changed', function() {
+     searchBox.set('map', null);
+
+
+     var places = searchBox.getPlaces();
+
+     var bounds = new google.maps.LatLngBounds();
+     var i, place;
+     for (i = 0; place = places[i]; i++) {
+       (function(place) {
+         var marker = new google.maps.Marker({
+
+           position: place.geometry.location
+         });
+         marker.bindTo('map', searchBox, 'map');
+         google.maps.event.addListener(marker, 'map_changed', function() {
+           if (!this.getMap()) {
+             this.unbindAll();
+           }
+         });
+         bounds.extend(place.geometry.location);
+
+
+       }(place));
+
+     }
+     map.fitBounds(bounds);
+     searchBox.set('map', map);
+     map.setZoom(Math.min(map.getZoom(),12));
+
+   });
+ }
+ google.maps.event.addDomListener(window, 'load', init)
+/*
+const myMarker = new google.maps.Marker({
+  position: {
+  	lat: center.lat,
+  	lng: center.lng}
+  },
+  map: map,
+  
+});
+*/
+</script>
