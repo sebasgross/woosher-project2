@@ -3,7 +3,7 @@ html {
   padding: 0px; }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 20px 'Muli', Avenir, sans-serif; }
 
 a {
   color: #00B7FF; }
@@ -28,7 +28,7 @@ a {
 
 .signup-container {
   padding-top: 20px;
-  border: 1px solid #abecfc;
+  border: 1px solid r gb(171, 236, 252);
   width: 800px;
   height: 550px; }
 
@@ -95,13 +95,13 @@ a {
   padding: 5px 11px; }
 
 .pac-controls label {
-  font-family: Roboto;
+  font-family: 'Muli', Avenir, sans-serif;
   font-size: 13px;
   font-weight: 300; }
 
 #pac-input {
   background-color: #fff;
-  font-family: Roboto;
+  font-family: 'Muli', Avenir, sans-serif;
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
@@ -111,5 +111,27 @@ a {
 
 #pac-input:focus {
   border-color: #4d90fe; }
+
+#navBar {
+  display: flex;
+  padding: 20px;
+  height: 100px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-content: center;
+  background: #0d4a68; }
+
+.subNav {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around; }
+
+.subNav a {
+  margin-right: 40%;
+  font-weight: 700;
+  letter-spacing: 3px; }
+
+.subNav a:hover {
+  color: #abecfc; }
 
 /*# sourceMappingURL=style.css.map */

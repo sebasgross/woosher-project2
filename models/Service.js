@@ -12,7 +12,7 @@ const serviceSchema = new Schema({
         },
       },
 
-      worker: {
+      woosher: {
         type: Schema.Types.ObjectId,
         ref:"User",
         required: {

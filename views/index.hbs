@@ -1,2 +1,19 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<nav id="navBar">
+    {{#if userLogged}}
+        <span>
+     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" height="50"> </a>
+    </span>
+        <span>
+      <a class="nav-bold" href="/profile">DASHBOARD</a>
+      <a href="/logout">LOGOUT</a>
+    </span>
+    {{else}}
+        <span>
+     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" height="50"> </a>
+    </span>
+    <span class="subNav">
+      <a class="nav-bold" href="/signup">SIGNUP</a>
+      <a href="/login">LOGIN</a>
+    </span>
+    {{/if}}
+</nav>
