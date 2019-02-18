@@ -1,4 +1,5 @@
-const Schema = require("mongoose").Schema
+const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 const PLM = require("passport-local-mongoose")
 
 const userSchema = new Schema(
@@ -11,9 +12,11 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    address: {
-      type:String,
-      required: true,
+    location: {
+      address:{
+        type:String,
+      },
+      coordinates:[]
     },
     email: String,
 

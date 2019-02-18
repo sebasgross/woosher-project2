@@ -1,4 +1,5 @@
-const Schema = require("mongoose").Schema
+const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 
 const serviceSchema = new Schema({
 
@@ -11,36 +12,33 @@ const serviceSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref:"User",
       },
-
+      airdry: Array,
       active: {
         type: Boolean,
-        default: false,
+        default: true,
       },
 
-      addressUser: {
+      addressFrom: {
         location: {
-          type: Schema.Types.ObjectId,
-          ref: 'User',
+          type: String,
+          default: 'Point',
         },
-        required: true,
-        active: true,
-        coordinates: [],
-      },
+        coordinates:[]
+        },
 
       addressWoosher: {
-        location: {
-          type: Schema.Types.ObjectId,
-          ref: 'User',
-        },
-        active: false,
-        coordinatesTo: [],
-      },
-
+          location: {
+            type: String,
+            default: 'Point',
+          },
+          coordinates:[]
+          },
       requestDate: {
         type: Date,
-        required: true,
-      },
+        // required: true,
+      }
 
 },{timestamps:true})
+
 
 module.exports = mongoose.model("Service", serviceSchema)

@@ -13,17 +13,28 @@ router.get('/signup', (req, res, next) => {
 })
 
 router.post('/signup', (req, res, next) => {
-  // if (req.body.password != req.body.password2) {
-  //   return res.render('auth/signup', { error: 'Please type the same password' })
-  // }
-  User.register({ ...req.body }, req.body.password)
+
+  User.register({ 
+    name: req.body.name,
+    lastName: req.body.lastName,
+    location: {
+      address: req.body.address 
+    },
+    email:req.body.email
+  
+  
+  
+  }, req.body.password)
+
   
     .then(() => {
+
       passport.authenticate('local')(req, res, () => {
         return res.redirect('/')
       })
     })
     .catch(error => {
+      console.log(error)
       res.render('auth/signup', { error })
     })
 })
