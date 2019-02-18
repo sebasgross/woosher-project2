@@ -1,15 +1,27 @@
 const router = require("express").Router()
 
-
-router.get('/new',(req,res,next)=>{
-    res.render('service/form')
+router.get('/status',(req,res,next)=>{
+    Service.find()
+    .then(services=>{
+        res.render('service/status',{services})
+    })
+    .catch((e)=>next(e))
+    
 })
 
-router.post('/new',(res,req,next)=>{
-    // const {_id} = req.user
-    Service.create({...req.body},{user: _id})
-    .then(()=>{
-        res.render("service/form")
+router.get('/new',(req,res,next)=>{
+    res.render('service/new')
+})
+
+router.post('/new', isLogged , (req,res,next)=>{
+
+    req.body.addressFrom= {
+        coordinates:[req.body.lat, req.body.lng]
+        }
+    Service.create(req.body)
+    .then(s=>{
+        console.log(s)
+        res.send("what")
     })
     .catch(err=>next(err))
 })
@@ -17,6 +29,5 @@ router.post('/new',(res,req,next)=>{
 router.get('/review',(req,res,next)=>{
     res.render('service/review')
 })
-
 
 module.exports = router

@@ -20,16 +20,16 @@ const serviceSchema = new Schema({
           default: true,
         },
       },
-
+      airdry: Array,
       active: {
         type: Boolean,
-        default: false,
+        default: true,
       },
 
-      addressUser: {
+      addressFrom: {
         location: {
-          type: Schema.Types.ObjectId,
-          ref: 'User',
+          type: String,
+          default: 'Point',
         },
         required: {
           type: Boolean,
@@ -53,7 +53,6 @@ const serviceSchema = new Schema({
         },
         coordinatesTo: [],
       },
-
       requestDate: {
         type: Date,
         required: {
@@ -63,5 +62,6 @@ const serviceSchema = new Schema({
       },
 
 },{timestamps:true})
+
 
 module.exports = mongoose.model("Service", serviceSchema)
