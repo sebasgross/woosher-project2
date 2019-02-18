@@ -36,7 +36,7 @@ router.post('/login', passport.authenticate('local'), (req, res, next) => {
   res.redirect('/dashboard')
 })
 
-router.get('/profile', isLogged, (req, res, next) => {
+router.get('/dashboard', isLogged, (req, res, next) => {
   res.render('auth/dashboard')
 })
 

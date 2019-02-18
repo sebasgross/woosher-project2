@@ -6,7 +6,7 @@ router.get('/new',(req,res,next)=>{
 })
 
 router.post('/new',(res,req,next)=>{
-    const {_id} = req.user
+    // const {_id} = req.user
     Service.create({...req.body},{user: _id})
     .then(()=>{
         res.render("service/form")
