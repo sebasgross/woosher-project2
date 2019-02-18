@@ -1,6 +1,7 @@
-let Schema = require('mongoose').Schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-let reviewSchema = new Schema ({
+const reviewSchema = new Schema ({
 
 	user: {
 		required: true,
