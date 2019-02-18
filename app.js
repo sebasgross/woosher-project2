@@ -60,7 +60,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'The Whoosher app';
+app.locals.title = 'The Whoosh app';
 //
 app.locals.loggedUser = false
 
@@ -78,9 +78,10 @@ function isLogged(req, res, next) {
 const index = require('./routes/index');
 const auth = require('./routes/auth')
 const service = require('./routes/service')
+const dashboard = require('./routes/dashboard')
 app.use('/service', isLogged, service)
 app.use('/', isLogged, auth)
-app.use('/', isLogged, index);
-
+app.use('/', isLogged, index)
+app.use('/', isLogged, dashboard)
 
 module.exports = app;

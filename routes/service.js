@@ -1,7 +1,5 @@
 const router = require("express").Router()
-// const User = require("../models/User")
-const Service = require('../models/Service') 
-// const Service = require("../models/Service")
+
 
 
 
@@ -33,6 +31,9 @@ router.post('/new',isLogged, (req,res,next)=>{
     .catch(err=>next(err))
 })
 
+router.get('/review',(req,res,next)=>{
+    res.render('service/review')
+})
 
 
 module.exports = router

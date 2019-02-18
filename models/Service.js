@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const serviceSchema = new Schema({
@@ -6,11 +6,19 @@ const serviceSchema = new Schema({
       user: {
         type: Schema.Types.ObjectId,
         ref: "User",
+        required: {
+          type: Boolean,
+          default: true,
+        },
       },
 
-      worker: {
+      woosher: {
         type: Schema.Types.ObjectId,
         ref:"User",
+        required: {
+          type: Boolean,
+          default: true,
+        },
       },
       airdry: Array,
       active: {
@@ -23,20 +31,35 @@ const serviceSchema = new Schema({
           type: String,
           default: 'Point',
         },
-        coordinates:[]
+        required: {
+          type: Boolean,
+          default: true,
         },
+        active: {
+          type: Boolean,
+          default: true,
+        },
+        coordinates: [],
+      },
 
       addressWoosher: {
-          location: {
-            type: String,
-            default: 'Point',
-          },
-          coordinates:[]
-          },
+        location: {
+          type: Schema.Types.ObjectId,
+          ref: 'User',
+        },
+        active: {
+          type: Boolean,
+          default: false,
+        },
+        coordinatesTo: [],
+      },
       requestDate: {
         type: Date,
-        // required: true,
-      }
+        required: {
+          type: Boolean,
+          default: true,
+        },
+      },
 
 },{timestamps:true})
 

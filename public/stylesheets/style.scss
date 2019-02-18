@@ -1,11 +1,9 @@
 html{
   margin: 0px;
-  padding:0px;
+  padding: 0px;
 }
 body {
-
-  // padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px 'Muli', Avenir, sans-serif;
 }
 
 a {
@@ -32,7 +30,7 @@ a {
 .signup-container{
   // justify-content: center;
   padding-top: 20px;
-  border: 1px solid rgb(171, 236, 252);
+  border: 1px solid r gb(171, 236, 252);
   width: 800px;
   height: 550px;
   // top: 25px;
@@ -107,14 +105,14 @@ a {
 }
 
 .pac-controls label {
-  font-family: Roboto;
+  font-family: 'Muli', Avenir, sans-serif;
   font-size: 13px;
   font-weight: 300;
 }
 
 #pac-input {
   background-color: #fff;
-  font-family: Roboto;
+  font-family: 'Muli', Avenir, sans-serif;
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
@@ -136,3 +134,29 @@ a {
    width:80px;
    margin-bottom: 1px;
  }
+
+#navBar {
+  display: flex;
+  padding: 25px;
+  height: 100px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-content: center;
+  background: #0d4a68;
+}
+
+.subNav {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.subNav a {
+  margin-right: 40%;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.subNav a:hover {
+  color: #abecfc;
+}
