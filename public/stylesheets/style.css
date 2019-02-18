@@ -114,7 +114,7 @@ a {
 
 #navBar {
   display: flex;
-  padding: 20px;
+  padding: 25px;
   height: 100px;
   box-sizing: border-box;
   justify-content: space-between;

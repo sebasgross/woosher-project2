@@ -1,7 +1,5 @@
 const router = require("express").Router()
-// const User = require("../models/User")
-const Service = require('../models/Service') 
-// const Service = require("../models/Service")
+
 
 router.get('/new',(req,res,next)=>{
     res.render('service/form')
