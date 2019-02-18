@@ -1,5 +1,4 @@
-const mongoose = require("mongoose")
-const Schema = mongoose.Schema
+const Schema = require("mongoose").Schema
 const PLM = require("passport-local-mongoose")
 
 const userSchema = new Schema(
@@ -31,6 +30,8 @@ const userSchema = new Schema(
   } , {timestamps:true}
 )
 
-userSchema.plugin(PLM, { usernameField: 'email' })
 
+
+
+userSchema.plugin(PLM, {usernameField: 'email'})
 module.exports = mongoose.model("User", userSchema)
