@@ -16,10 +16,14 @@
         </form>
     </div>
 
+
 </section> --}}
+
 <section class="signupPage">
 <section class="signup-container">
-    <h4>Sign up to Woosher</h4>
+    <img height="80" width="280"src="http://res.cloudinary.com/dpt8pbi8n/image/upload/v1550545408/Woosh.png">
+
+    <h4>Sign up</h4>
 
 <div clas="signup-card">
     <div class="row">
@@ -72,10 +76,46 @@
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
                 </button>
-                
+
+  <input type="text" name="lng" hidden="true" id="lng" >
+  <input type="text" name="lat" hidden="true" id="lat">
+               
+
                 </form>
                 </div>
     </div>
     </div>
+</section>          
+    <section class="address">
+    <p>Write address here:</p>
+
+    <div class="map-signup" id="map"></div>  
+    </section>
 </section>
-</section>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+
+});
+const geoCoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken
+})
+map.addControl(geoCoder)
+
+geoCoder.on('result',(res) =>{
+    console.log(res.result)
+document.getElementById('lng').value = res.result.center[0]
+document.getElementById('lat').value = res.result.center[1]
+
+  
+})
+
+console.log(geoCoder)
+
+</script>

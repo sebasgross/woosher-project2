@@ -17,6 +17,9 @@ router.post('/signup', (req, res, next) => {
   if (req.body.password != req.body.password2) {
     return res.render('auth/signup', { error: 'Please type the same password' })
   }
+  req.body.location= {
+    coordinates:[req.body.lng, req.body.lat]
+    }
   User.register({ ...req.body }, req.body.password)
   
     .then(() => {
