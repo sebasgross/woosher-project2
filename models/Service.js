@@ -43,18 +43,22 @@ const serviceSchema = new Schema({
         },
         coordinates: [],
       },
-
-      addressWoosher: {
-        location: {
-          type: Schema.Types.ObjectId,
-          ref: 'User',
-        },
-        active: {
-          type: Boolean,
-          default: false,
-        },
-        coordinatesTo: [],
+      woosher:{
+        type: Schema.Types.ObjectId,
+        ref: "User",
       },
+      addressTo: {
+        location:{
+          type: String,
+          default: 'Point'
+        },
+          active: {
+            type: Boolean,
+            default: false,
+          },
+          coordinates: [],
+        },
+
       // requestDate: {
       //   type: Date,
       //   required: {

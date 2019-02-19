@@ -12,6 +12,9 @@
   }
 </style>
 
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
@@ -19,14 +22,33 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
 zoom: 13,
-center:[{{addressFrom.coordinates}}]
+center:[{{service.addressFrom.coordinates}}]
 
 });
 const marker = new mapboxgl.Marker({
   color: 'red'
 })
-.setLngLat([{{addressFrom.coordinates}}])
+
+
+.setLngLat([{{service.addressFrom.coordinates}}])
 .addTo(map)
+
+window.onload = function putAddress(){
+  document.getElementById
+    //do onload work
+}
+
+
+
+
+map.addControl(new MapboxDirections({
+accessToken: mapboxgl.accessToken
+}), 'top-left');
+
+
+map._controls[2].actions.setOriginFromCoordinates([{{service.addressFrom.coordinates}}])
+map._controls[2].actions.setDestinationFromCoordinates([{{user.location.coordinates}}])
+
 
 
 </script>

@@ -8,19 +8,25 @@ function isLogged(req, res, next) {
     return res.redirect('/login')
   }
 
-function makeRoute(req,res,next){
-    if(!req.body.addressWoosher){
-        req.body.addressWoosher = req.user.location.coordinates
-    }
-}
+// function makeRoute(req,res,next){
+//     if(!req.body.addressWoosher){
+//         req.body.addressWoosher = req.user.location.coordinates
+//     }
+// }
 
   router.get('/detail/:id',(req,res,next)=>{
       const {id} = req.params
+    //   req.body.woosher = req.user._id
+    //   req.body.addressTo={
+    //       coordinates:[req.body.coordinates[0],req.body.coordinates[1]]
+    //   }
+      
       Service.findById(id)
+
       .populate('user')
       .then(service=>{
         
-        res.render('service/detail' ,service)
+        res.render('service/detail',{service, user: req.user})
       })
       .catch((e)=>next(e))
   })
