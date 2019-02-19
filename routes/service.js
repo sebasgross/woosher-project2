@@ -1,6 +1,11 @@
 const router = require("express").Router()
 
-router.get('/status',(req,res,next)=>{
+function isLogged(req, res, next) {
+    if (req.isAuthenticated()) return next()
+    return res.redirect('/login')
+}
+
+router.get('/status', isLogged, (req,res,next)=>{
     Service.find()
     .then(services=>{
         res.render('service/status',{services})
@@ -9,12 +14,11 @@ router.get('/status',(req,res,next)=>{
     
 })
 
-router.get('/new',(req,res,next)=>{
+router.get('/new', isLogged, (req,res,next)=>{
     res.render('service/new')
 })
 
 router.post('/new', isLogged , (req,res,next)=>{
-
     req.body.addressFrom= {
         coordinates:[req.body.lat, req.body.lng]
         }
@@ -26,7 +30,7 @@ router.post('/new', isLogged , (req,res,next)=>{
     .catch(err=>next(err))
 })
 
-router.get('/review',(req,res,next)=>{
+router.get('/review', isLogged, (req,res,next)=>{
     res.render('service/review')
 })
 

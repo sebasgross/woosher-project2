@@ -116,6 +116,7 @@ a {
   height: 25px;
   width: 80px;
   margin-bottom: 1px; }
+
 #navBar {
   display: flex;
   padding: 25px;
@@ -127,8 +128,8 @@ a {
 
 .subNav {
   display: flex;
-  justify-content: center;
-  justify-content: space-around; }
+  justify-content: space-around;
+  margin-right: 5%; }
 
 .subNav a {
   margin-right: 40%;
@@ -137,5 +138,32 @@ a {
 
 .subNav a:hover {
   color: #abecfc; }
+
+#home-view {
+  color: #0d4a68;
+  padding: 50px;
+  height: 90vh;
+  position: relative; }
+
+#home-view h3 {
+  font-weight: bolder;
+  font-size: 50px; }
+
+#home-view h5 {
+  width: 50%; }
+
+#home-view img {
+  position: absolute;
+  right: 30px;
+  bottom: 40px; }
+
+#home-view button {
+  background-color: #0d4a68;
+  color: floralwhite;
+  border-radius: 10px;
+  width: 15%;
+  padding: 20px;
+  border: none;
+  margin: 2% auto auto 15%; }
 
 /*# sourceMappingURL=style.css.map */

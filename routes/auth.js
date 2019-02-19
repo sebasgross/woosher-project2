@@ -40,7 +40,17 @@ router.post('/login', passport.authenticate('local'), (req, res, next) => {
 })
 
 router.get('/dashboard', isLogged, (req, res, next) => {
-  res.render('auth/dashboard')
+  console.log(req.user)
+  let {id} = req.user
+  User.findById(id)
+      .then(user=>{
+        console.log(user)
+        res.render('auth/dashboard', user)
+      })
+      .catch(error => {
+        res.render('auth/dashboard', { error })
+      })
+  // res.render('auth/dashboard')
 })
 
 router.get('/logout', (req, res, next) => {

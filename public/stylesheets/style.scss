@@ -147,8 +147,8 @@ a {
 
 .subNav {
   display: flex;
-  justify-content: center;
   justify-content: space-around;
+  margin-right: 5%;
 }
 
 .subNav a {
@@ -159,4 +159,37 @@ a {
 
 .subNav a:hover {
   color: #abecfc;
+}
+
+#home-view {
+  //background-color: #e0ecff ;
+  color: #0d4a68;
+  padding: 50px;
+  height: 90vh;
+  position: relative;
+}
+
+#home-view h3 {
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+#home-view h5 {
+  width: 50%;
+}
+
+#home-view img {
+  position: absolute;
+  right: 30px;
+  bottom: 40px;
+}
+
+#home-view button {
+  background-color: #0d4a68;
+  color: floralwhite;
+  border-radius: 10px;
+  width: 15%;
+  padding: 20px;
+  border: none;
+  margin: 2% auto auto 15%;
 }
