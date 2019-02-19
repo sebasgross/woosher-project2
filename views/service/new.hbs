@@ -1,0 +1,87 @@
+
+<section class="servicePage">
+
+<section class="service-container">
+
+<div>
+    
+<form action="/service/new" method="POST">
+<h4 id="serviceHeading">Pide tu woosher a domicillio</h4>
+<p>
+    It has never been this easy to clean my clothes.<br/>
+    Request your woosher, to get your clothes cleaned in less<br/>
+    than three days.<br/>
+
+</p>
+    <p>
+      <label>
+        <input id="indeterminate-checkbox" type="checkbox" />
+        <span>Fast Delivery , only 5$ more</span>
+
+      </label>
+
+</p>
+        {{!-- <p>
+            You want it under 48 hours? It is just 5 dollars more<br/>
+            check the Fast Delivery option.
+
+        </p> --}}
+
+        <p>
+      <label>
+        {{!-- <input id="indeterminate-checkbox" type="checkbox" /> --}}
+        {{!-- <span>Air Dry</span> --}}
+          <p> If you want AirdDry, describe the items you want Airdried</p>
+       
+            <textarea id="textarea"form="form_id"></textarea>
+      </label>
+    </p>
+    <div>
+
+
+
+
+      <div id="map"></div>
+
+  <input type="text" name="lng" hidden="true" id="lng" >
+  <input type="text" name="lat" hidden="true" id="lat">
+  </div>
+      <div class="boton">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+          </button>
+      </div>
+</form>
+</div>
+
+
+</section>
+
+</section>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+
+});
+const geoCoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken
+})
+map.addControl(geoCoder)
+
+geoCoder.on('result',(res) =>{
+document.getElementById('lng').value = res.result.center[0]
+document.getElementById('lat').value = res.result.center[1]
+
+  
+})
+
+console.log({{service}})
+
+</script>
+
