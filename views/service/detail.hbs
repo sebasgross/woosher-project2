@@ -1,38 +1,34 @@
-{{#each services as |service|}}
-<p>{{service.username}}</p>
-<a href="/service/detail/{{service._id}}">Edit</a>
+<h2>{{user.name}}</h2>
 
+<h2>{{addressFrom.coordinates}}</h2>
+<div id="map"></div>
+<button id="check-route">Check Route</button>
 
-
-{{/each}}
+<a href='/status'>Go back</a>
+<style>
+  #map{
+    height: 350px;
+    width: 800px;
+  }
+</style>
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script>
-
-
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
 zoom: 13,
-
+center:[{{addressFrom.coordinates}}]
 
 });
-
-
-
 const marker = new mapboxgl.Marker({
   color: 'red'
 })
-
-.setLngLat()
+.setLngLat([{{addressFrom.coordinates}}])
 .addTo(map)
+
+
 </script>
 
-<h2>golaaa</h2>
-<style>
-  #map{
-    height: 350px;
-    width: 400px;
-  }
-</style>
+{{!-- 19.4024579,-99.1777904 --}}
