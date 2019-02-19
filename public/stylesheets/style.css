@@ -155,4 +155,13 @@ a {
 .subNav a:hover {
   color: #abecfc; }
 
+.detail-request {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; }
+
+.detail-request #map {
+  position: relative;
+  top: 100px; }
+
 /*# sourceMappingURL=style.css.map */

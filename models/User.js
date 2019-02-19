@@ -20,9 +20,10 @@ const userSchema = new Schema(
     },
     email: String,
 
-    isWorker:{
-      type: Boolean,
-      default: false,
+    role:{
+      type: String,
+      enum:['WOOSHER','USUARIO'],
+      default: 'USUARIO',
     },
     photoURL: {
       type: String,

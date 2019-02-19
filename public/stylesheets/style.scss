@@ -176,4 +176,15 @@ color: rgb(13, 74, 104);
 .subNav a:hover {
   color: #abecfc;
 }
+.detail-request{
+  // padding-top: 40px;
+  // padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.detail-request #map{
+  position: relative;
+  top: 100px;
+}
 

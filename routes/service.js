@@ -3,6 +3,16 @@ const User = require('../models/User')
 const Service = require('../models/Service')
 
 //middlewear
+const isWoosher = (req, res, next) => {
+    if (!req.user) return res.redirect('/')
+    if (req.user.role === 'WOOSHER') return next()
+    return res.redirect('/')
+  }
+  const isUsuario = (req, res, next) => {
+    if (!req.user) return res.redirect('/')
+    if (req.user.role === 'USUARIO') return next()
+    return res.redirect('/')
+  }
 function isLogged(req, res, next) {
     if (req.isAuthenticated()) return next()
     return res.redirect('/login')
@@ -14,7 +24,7 @@ function isLogged(req, res, next) {
 //     }
 // }
 
-  router.get('/detail/:id',(req,res,next)=>{
+  router.get('/detail/:id',isLogged, isWoosher,(req,res,next)=>{
       const {id} = req.params
     //   req.body.woosher = req.user._id
     //   req.body.addressTo={
@@ -31,7 +41,7 @@ function isLogged(req, res, next) {
       .catch((e)=>next(e))
   })
 
-router.get('/status',(req,res,next)=>{
+router.get('/status',isLogged,isWoosher,(req,res,next)=>{
     Service.find()
     .then(services=>{
 //        services.populate()
@@ -47,7 +57,7 @@ router.get('/new',(req,res,next)=>{
     res.render('service/new')
 })
 
-router.post('/new', isLogged , (req,res,next)=>{
+router.post('/new', isLogged , isUsuario, (req,res,next)=>{
 
     req.body.addressFrom= {
         coordinates:[req.body.lng, req.body.lat]

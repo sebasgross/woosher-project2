@@ -1,8 +1,11 @@
+<h2>Request near by</h2>
+
 {{#each services as |service|}}
 <p>{{service.username}}</p>
+<p>{{service.}}</p>
+
 <a href="/service/detail/{{service._id}}">Check route</a>
 
-<div id="map"></div>
 
 {{/each}}
 
@@ -19,24 +22,8 @@ zoom: 13,
 
 });
 
+console.log(req.user)
 
-
-const marker = new mapboxgl.Marker({
-  color: 'red'
-})
-
-map.addControl(new MapboxDirections({
-accessToken: mapboxgl.accessToken
-}), 'top-left');
-
-.setLngLat([])
-.addTo(map)
 </script>
 
-<h2>golaaa</h2>
-<style>
-  #map{
-    height: 350px;
-    width: 400px;
-  }
-</style>
+
