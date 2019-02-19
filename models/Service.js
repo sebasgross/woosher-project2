@@ -10,16 +10,18 @@ const serviceSchema = new Schema({
           type: Boolean,
           default: true,
         },
+      
       },
+      username: String,
 
-      woosher: {
-        type: Schema.Types.ObjectId,
-        ref:"User",
-        required: {
-          type: Boolean,
-          default: true,
-        },
-      },
+      // woosher: {
+      //   type: Schema.Types.ObjectId,
+      //   ref:"User",
+      //   required: {
+      //     type: Boolean,
+      //     default: true,
+      //   },
+      // },
       airdry: Array,
       active: {
         type: Boolean,
@@ -31,10 +33,10 @@ const serviceSchema = new Schema({
           type: String,
           default: 'Point',
         },
-        required: {
-          type: Boolean,
-          default: true,
-        },
+        // required: {
+        //   type: Boolean,
+        //   default: true,
+        // },
         active: {
           type: Boolean,
           default: true,
@@ -53,13 +55,13 @@ const serviceSchema = new Schema({
         },
         coordinatesTo: [],
       },
-      requestDate: {
-        type: Date,
-        required: {
-          type: Boolean,
-          default: true,
-        },
-      },
+      // requestDate: {
+      //   type: Date,
+      //   required: {
+      //     type: Boolean,
+      //     default: true,
+      //   },
+      // },
 
 },{timestamps:true})
 
