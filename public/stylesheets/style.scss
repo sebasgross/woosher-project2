@@ -36,6 +36,24 @@ a {
   height: 550px;
 
 }
+#signup-button{
+  float: right;
+  margin-left: 5px;
+
+}
+.buttons-login{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.buttons-login p{
+  font-size: 80%;
+  // margin-top: 30px;
+  // height: 30px;
+  // width: 100px;
+  margin-left: 2px;
+  // margin-bottom: 50px;
+}
 .address{
   margin: 0;
 }

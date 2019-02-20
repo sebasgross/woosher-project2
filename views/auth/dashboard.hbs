@@ -1,18 +1,22 @@
-<h2>YOUR DASHBOARD</h2>
+<h2>Profile</h2>
 
 <div class="user-div">
-    <img src="{{photoURL}}" alt="{{email}}">
-    <h5>{{email}}</h5>
-    <h5>Nombre</h5>
-    <p>{{name}}</p>
-    <h5>Apellidos</h5>
-    <p>{{lastName}}</p>
-    <h5>Dirección</h5>
-    <p>{{location.address}}</p>
+    <img src="{{photoURL}}" alt="{{email}}" height="100" width="90">
+
+    <h3>
+    {{name}} 
+    {{lastName}}
+    </h3>
+    <h5>Your email: {{email}}</h5>
+    <p> Address: {{location.address}}</p>
     <br>
     {{#if isWoosher}}
     {{else}}
-    <button>Hazte Woosher</button>
+    <a href="/service/authorize" type="button">Hazte Woosher</a>
+    <p>
+        Check available request:
+        <a href="/service/status">Click here</a>
+    </p>
     {{/if}}
 </div>
 
