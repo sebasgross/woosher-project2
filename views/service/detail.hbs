@@ -1,21 +1,26 @@
 <section class="detail-request">
   <section class="heading-detail">
-<h2>{{service.username}}</h2>
+<h4>{{service.username}} is requesting a Woosher</h4>
 
-<h2>{{service.addressFrom.coordinates}}</h2>
+<p>check if its close to you!</pac>
+<p class="time"></p>
+<form action="/service/detail/{{service._id}}" method="POST">
+  <input type="text" name='active' value="true" hidden>
+  <input id="activar-request" type="submit" value="Accept request">
+</form>
+
 </section>
 <section>
 <div id="map"></div>
 
 
-<input id="activar-request" type="submit" value="Accept request">
 <a href='/status'>Go back</a>
 
 </section>
 </section>
 <style>
   #map{
-    height: 350px;
+    height: 420px;
     width: 800px;
   }
 </style>
@@ -35,6 +40,7 @@ center:[{{service.addressFrom.coordinates}}]
 });
 const marker = new mapboxgl.Marker({
   color: 'red'
+  
 })
 
 
@@ -53,6 +59,13 @@ map._controls[2].actions.setOriginFromCoordinates([{{service.addressFrom.coordin
 map._controls[2].actions.setDestinationFromCoordinates([{{user.location.coordinates}}])
 
 
+window.onload = function(){
+let time = document.getElementsByClassName('mapbox-directions-component mapbox-directions-route-summary').innerText
+
+document.getElementsByClassName('time').innerHTML = time
+  
+}
+ 
 
 </script>
 

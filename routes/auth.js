@@ -17,11 +17,16 @@ router.post('/signup', (req, res, next) => {
   if (req.body.password != req.body.password2) {
     return res.render('auth/signup', { error: 'Please type the same password' })
   }
+  
   req.body.location= {
-    coordinates:[req.body.lng, req.body.lat]
+    coordinates:[req.body.lng, req.body.lat],
+    address:req.body.address
+    }
+    if(!req.body.location){
+      return res.render('auth/signup', { error: 'Please type the same password' })    
     }
   User.register({ ...req.body }, req.body.password)
-  
+
     .then(() => {
 
       passport.authenticate('local')(req, res, () => {
@@ -43,7 +48,17 @@ router.post('/login', passport.authenticate('local'), (req, res, next) => {
 })
 
 router.get('/dashboard', isLogged, (req, res, next) => {
-  res.render('auth/dashboard')
+  console.log(req.user)
+  let {id} = req.user
+  User.findById(id)
+      .then(user=>{
+        console.log(user)
+        res.render('auth/dashboard', user)
+      })
+      .catch(error => {
+        res.render('auth/dashboard', { error })
+      })
+  // res.render('auth/dashboard')
 })
 
 router.get('/logout', (req, res, next) => {

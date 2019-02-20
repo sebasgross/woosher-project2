@@ -144,8 +144,8 @@ a {
 
 .subNav {
   display: flex;
-  justify-content: center;
-  justify-content: space-around; }
+  justify-content: space-around;
+  margin-right: 5%; }
 
 .subNav a {
   margin-right: 40%;
@@ -158,10 +158,54 @@ a {
 .detail-request {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin: 10px;
+  padding: 25px; }
 
 .detail-request #map {
   position: relative;
   top: 100px; }
+
+.map-detail {
+  height: 500px;
+  width: 500px; }
+
+#home-view {
+  color: #0d4a68;
+  padding: 50px;
+  height: 90vh;
+  position: relative; }
+
+#home-view h3 {
+  font-weight: bolder;
+  font-size: 50px; }
+
+#home-view h5 {
+  width: 50%; }
+
+#home-view img {
+  position: absolute;
+  right: 30px;
+  bottom: 40px; }
+
+#home-view button {
+  background-color: #0d4a68;
+  color: floralwhite;
+  border-radius: 10px;
+  width: 15%;
+  padding: 20px;
+  border: none;
+  margin: 2% auto auto 15%; }
+
+.statusPage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.status-container {
+  margin: 2px;
+  border: 1px solid black;
+  width: 200px;
+  height: 160px; }
 
 /*# sourceMappingURL=style.css.map */

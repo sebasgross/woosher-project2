@@ -78,10 +78,8 @@ function isLogged(req, res, next) {
 const index = require('./routes/index');
 const auth = require('./routes/auth')
 const service = require('./routes/service')
-const dashboard = require('./routes/dashboard')
 app.use('/service', isLogged, service)
 app.use('/', isLogged, auth)
 app.use('/', isLogged, index)
-app.use('/', isLogged, dashboard)
 
 module.exports = app;

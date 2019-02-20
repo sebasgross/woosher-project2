@@ -18,30 +18,38 @@ function isLogged(req, res, next) {
     return res.redirect('/login')
   }
 
-// function makeRoute(req,res,next){
-//     if(!req.body.addressWoosher){
-//         req.body.addressWoosher = req.user.location.coordinates
-//     }
-// }
+
+router.get('/list',isLogged,isWoosher,(req,res,next)=>{
+        
+
+    Service.find()
+    .then((services)=>{
+    res.render('service/list',services)
+    })
+    .catch((e)=>next(e))
+})
+router.post('/detail/:id',isLogged,isWoosher,(req,res,next)=>{
+    Service.findByIdAndUpdate(req.params.id,{$set:req.body})
+    .then(()=>{
+        res.redirect('/service/status')
+    })
+    .catch((e)=>console.log(e))
+
+})
 
   router.get('/detail/:id',isLogged, isWoosher,(req,res,next)=>{
       const {id} = req.params
-    //   req.body.woosher = req.user._id
-    //   req.body.addressTo={
-    //       coordinates:[req.body.coordinates[0],req.body.coordinates[1]]
-    //   }
-      
-      Service.findById(id)
 
+      Service.findById(id)
       .populate('user')
       .then(service=>{
-        
         res.render('service/detail',{service, user: req.user})
       })
       .catch((e)=>next(e))
   })
 
 router.get('/status',isLogged,isWoosher,(req,res,next)=>{
+
     Service.find()
     .then(services=>{
 //        services.populate()
@@ -53,7 +61,7 @@ router.get('/status',isLogged,isWoosher,(req,res,next)=>{
     
 
 
-router.get('/new',(req,res,next)=>{
+router.get('/new', isLogged,isUsuario, (req,res,next)=>{
     res.render('service/new')
 })
 
@@ -67,13 +75,12 @@ router.post('/new', isLogged , isUsuario, (req,res,next)=>{
 
     Service.create(req.body)
     .then(s=>{
-        console.log(s)
-        res.send("what")
+        res.redirect('auth/dashboard')
     })
     .catch(err=>next(err))
 })
 
-router.get('/review',(req,res,next)=>{
+router.get('/review', isLogged, (req,res,next)=>{
     res.render('service/review')
 })
 

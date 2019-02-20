@@ -1,13 +1,21 @@
 <h2>Request near by</h2>
-
+<section class="statusPage">
 {{#each services as |service|}}
+<section class="status-container">
+
+{{#if service.active}}
+<p>in route</p>
+{{else}}
 <p>{{service.username}}</p>
-<p>{{service.}}</p>
+<p>{{addressFrom.address}}</p>
 
 <a href="/service/detail/{{service._id}}">Check route</a>
 
+{{/if}}
+</section>
 
 {{/each}}
+</section>
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script>

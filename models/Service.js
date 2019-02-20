@@ -25,7 +25,7 @@ const serviceSchema = new Schema({
       airdry: Array,
       active: {
         type: Boolean,
-        default: true,
+        default: false,
       },
 
       addressFrom: {
@@ -39,7 +39,7 @@ const serviceSchema = new Schema({
         // },
         active: {
           type: Boolean,
-          default: true,
+          default: false,
         },
         coordinates: [],
       },
