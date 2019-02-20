@@ -1,9 +1,14 @@
 
 <section class="signupPage">
 <section class="signup-container">
-    <img height="80" width="280"src="http://res.cloudinary.com/dpt8pbi8n/image/upload/v1550545408/Woosh.png">
+    <img class="woosh-logo" src="http://res.cloudinary.com/dpt8pbi8n/image/upload/v1550545408/Woosh.png">
 
-    <h4>Sign up</h4>
+    {{#if error}}
+        <h4>Sign up</h4>
+        <h6 style="color: red;">--- {{error}} ---</h6>
+    {{else}}
+        <h4>Sign up</h4>
+    {{/if}}
 
 <div clas="signup-card">
     <div class="row">

@@ -21,4 +21,9 @@
 </div>
 
 <div class="services-div">
+    {{#each service}}
+        <h4>{{active}}</h4>
+        <span>{{woosher.name}}</span>
+        <span>{{requestDate}}</span>
+    {{/each}}
 </div>

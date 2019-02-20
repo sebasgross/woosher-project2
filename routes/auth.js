@@ -2,14 +2,21 @@
 const router = require('express').Router()
 const User = require('../models/User')
 const passport = require('passport')
+const Service = require('../models/Service')
 
 function isLogged(req, res, next) {
   if (req.isAuthenticated()) return next()
   return res.redirect('/login')
 }
 
+function isLogged2(req, res, next) {
+  if (!req.isAuthenticated()) return next()
+  return res.redirect('/dashboard')
+}
+
 router.get('/signup', (req, res, next) => {
-  res.render('auth/signup')
+    res.render('auth/signup')
+
 })
 
 router.post('/signup', (req, res, next) => {
@@ -28,19 +35,18 @@ router.post('/signup', (req, res, next) => {
   User.register({ ...req.body }, req.body.password)
 
     .then(() => {
-
       passport.authenticate('local')(req, res, () => {
         return res.redirect('/dashboard')
       })
     })
     .catch(error => {
       console.log(error)
-      res.render('auth/signup', { error })
+      res.render('auth/signup', {error: error })
     })
 })
 
-router.get('/login', (req, res, next) => {
-  res.render('auth/login')
+router.get('/login', isLogged2, (req, res, next) => {
+    res.render('auth/login')
 })
 
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
@@ -48,17 +54,21 @@ router.post('/login', passport.authenticate('local'), (req, res, next) => {
 })
 
 router.get('/dashboard', isLogged, (req, res, next) => {
-  console.log(req.user)
   let {id} = req.user
   User.findById(id)
-      .then(user=>{
-        console.log(user)
+      .then((user)=>{
         res.render('auth/dashboard', user)
       })
       .catch(error => {
         res.render('auth/dashboard', { error })
       })
-  // res.render('auth/dashboard')
+  // Service.find({ user: id }).sort({createdAt:-1}).limit(5)
+  //     .then(({services})=>{
+  //       res.render('auth/dashboard', {services})
+  //     })
+  //     .catch(error => {
+  //       res.render('auth/dashboard', { error })
+  //     })
 })
 
 router.get('/logout', (req, res, next) => {

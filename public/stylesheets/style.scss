@@ -4,6 +4,8 @@ html{
 }
 body {
   font: 20px 'Muli', Avenir, sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 a {
@@ -84,20 +86,22 @@ color: rgb(13, 74, 104);
 .input-field label {
   color: rgb(171, 236, 252);
 }
+
+// FIXED THE LOGO IN THE LOGIN PAGE SO EVERYTHING APPEARS ALWAYS IN THE MIDDLE OF THE SCREEN
 .loginpage{
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 25px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
+
 .login-container{
   border: 1px solid rgb(171, 236, 252);
-
   height: 350px;
   width: 380px;
-  justify-content: center;
-
 }
+
 .login-container h4{
   color: rgb(13, 74, 104);
   padding-left: 20px;
@@ -244,6 +248,7 @@ color: rgb(13, 74, 104);
   border: none;
   margin: 2% auto auto 15%;
 }
+<<<<<<< HEAD
 .statusPage{
   display: flex;
   flex-direction: row;
@@ -255,4 +260,11 @@ color: rgb(13, 74, 104);
   border: 1px solid black;
   width: 200px;
   height: 160px;
+=======
+
+.woosh-logo {
+  min-height: 50px;
+  max-height: 100px;
+  margin: 3%;
+>>>>>>> 90ce82a6a3461ca7b64ecf3dfbd9967ff1ef0f3d
 }
