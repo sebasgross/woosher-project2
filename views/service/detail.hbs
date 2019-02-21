@@ -1,11 +1,27 @@
-<nav id="navBar">
+{{!-- <nav id="navBar2">
     {{#if loggedUser}}
         <span>
-     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" height="60"> </a>
+     <a href="/"> <img src="/images/Woosh.png" alt="woosh-logo" height="60"> </a>
+
     </span>
-        <span class="subNav">
-      <a class="nav-bold" href="/dashboard">DASHBOARD</a>
-      <a href="/logout">LOGOUT</a>
+        <span class="subNav2"></span>
+           <a class="nav-bold" href="/dashboard">DASHBOARD</a>
+          <a href="/logout">LOGOUT</a>
+    </span>
+    {{/if}}
+</nav> --}}
+<nav id="navBar">
+    {{#if loggedUser}}
+    <span class="subNav">
+      <a class="nav-bold" href="/profile">DASHBOARD</a>
+             <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" class="woosh-logo"> </a>
+      <a href="/logout">LOG OUT</a>
+    </span>
+    {{else}}
+    <span class="subNav">
+      <a class="nav-bold" href="/signup">SIGN UP</a>
+             <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" class="woosh-logo"> </a>
+      <a href="/login">LOG IN</a>
     </span>
     {{/if}}
 </nav>
