@@ -20,26 +20,13 @@
 
       </label>
 
-</p>
-        {{!-- <p>
-            You want it under 48 hours? It is just 5 dollars more<br/>
-            check the Fast Delivery option.
-
-        </p> --}}
-
         <p>
       <label>
-        {{!-- <input id="indeterminate-checkbox" type="checkbox" /> --}}
-        {{!-- <span>Air Dry</span> --}}
           <p> If you want AirdDry, describe the items you want Airdried</p>
-       
             <textarea id="textarea"form="form_id"></textarea>
       </label>
     </p>
     <div>
-
-
-
 
       <div id="map"></div>
 
@@ -61,27 +48,26 @@
 
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
 <script>
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
+    var bounds = [[-99.215766, 19.271481], [-99.067508, 19.494349]]
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-99.133209, 19.432545],
+        zoom: 10,
+        maxBounds: bounds,
+    })
 
-});
-const geoCoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken
+    map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        countries: 'mx',
+        bbox: [-99.215766, 19.271481, -99.067508, 19.494349],
+    })).on('result',(res) =>{
+    document.getElementById('lng').value = res.result.center[0]
+    document.getElementById('lat').value = res.result.center[1]
 })
-map.addControl(geoCoder)
-
-geoCoder.on('result',(res) =>{
-document.getElementById('lng').value = res.result.center[0]
-document.getElementById('lat').value = res.result.center[1]
-
-  
-})
-
-console.log({{service}})
-
 </script>
-
