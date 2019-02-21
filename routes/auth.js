@@ -25,9 +25,8 @@ function isLogged2(req, res, next) {
   return res.redirect('/dashboard')
 }
 
-router.get('/signup', (req, res, next) => {
+router.get('/signup', isLogged2, (req, res, next) => {
     res.render('auth/signup')
-
 })
 
 router.post('/signup', (req, res, next) => {
@@ -60,8 +59,15 @@ router.get('/login', isLogged2, (req, res, next) => {
     res.render('auth/login')
 })
 
-router.post('/login', passport.authenticate('local'), (req, res, next) => {
-  res.redirect('/dashboard')
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) return res.render('auth/login', { err: info })
+    if (!user) return res.render('auth/login', { err: info })
+    req.logIn(user, err => {
+     if (err) return next(err)
+      return res.redirect('/dashboard')
+    })
+  })(req, res, next)
 })
 
 router.get('/dashboard', isLogged,(req, res, next) => {

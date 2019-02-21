@@ -322,7 +322,7 @@ color: rgb(13, 74, 104);
   background-color: #0d4a68;
   border-bottom: 2px solid floralwhite;
   position: fixed;
-  
+  z-index: 1;
 }
 #nav-logout{
   float: right;
@@ -331,10 +331,10 @@ color: rgb(13, 74, 104);
 }
 
 .subNav {
+  margin-top: 3vh;
   display: flex;
   width: 100vw;
   justify-content: space-around;
-  margin-top: 2%;
 }
 
 .subNav a:hover {
@@ -400,3 +400,26 @@ color: rgb(13, 74, 104);
   margin-bottom: -10px;
 }
 
+#navbartwo {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  box-sizing: border-box;
+  background: #0d4a68;
+}
+
+#navbartwo * {
+  margin-left: 10px;
+}
+
+.subnavtwo {
+  display: flex;
+  width: 50vw;
+  justify-content: flex-end;
+}
+
+.subnavtwo * {
+  margin-right: 40px;
+}
