@@ -27,7 +27,8 @@ a {
   display: flex;
   justify-content: space-around;
   width: 100vw;
-  height: 90vh; }
+  height: 90vh; 
+}
 
 .signup-container {
   padding: 3% 3% 0 3%;
@@ -147,6 +148,15 @@ a {
   box-sizing: border-box;
   background: #0d4a68; }
 
+#navBar2 {
+  display: flex;
+  padding: 10px;
+  height: 80px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-content: center;
+  background: #0d4a68; }
+
 .subNav {
   display: flex;
   align-content: center;
@@ -230,5 +240,57 @@ a {
   flex-direction: column;
   align-items: center;
   padding: 2%; }
+
+.dashboardPage {
+  margin: 8px; }
+
+.dashboardPage h2 {
+  font-size: 350%;
+  font-family: 'Muli', Avenir, sans-serif;
+  text-align: center; }
+
+.services-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.order-card {
+  border: 1px solid blue;
+  height: 320px;
+  width: 339px;
+  padding: 3px;
+  margin-right: 8px; }
+
+#order-delivered {
+  font-size: 120%;
+  color: #f48f30;
+  padding-top: 30px; }
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px; }
+
+.border {
+  font-size: 120%;
+  padding: 5px;
+  margin: 5px;
+  height: 250px;
+  width: 339px; }
+
+#pide-woosher {
+  text-align: center;
+  font-size: 130;
+  margin-top: 10%; }
+
+#pide-woosher a {
+  color: white;
+  background-color: #5A827F;
+  padding: 5px 11px;
+  border-style: 2px solid; }
+
+#pide-woosher a:hover {
+  opacity: .65; }
 
 /*# sourceMappingURL=style.css.map */

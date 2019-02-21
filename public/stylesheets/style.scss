@@ -32,8 +32,15 @@ a {
 .signupPage {
   display: flex;
   justify-content: space-around;
+<<<<<<< HEAD
+
+  max-width: 100vw;
+  max-height: 100vh;
+  transform: scale(0.95)
+=======
   width: 100vw;
   height: 90vh;
+>>>>>>> 8b69a1d1477890896d75b35583888441a0809539
 }
 
 .signup-container {
@@ -178,6 +185,15 @@ color: rgb(13, 74, 104);
   box-sizing: border-box;
   background: #0d4a68;
 }
+#navBar2{
+  display: flex;
+  padding: 10px;
+  height: 80px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-content: center;
+  background: #0d4a68;
+}
 
 .subNav {
   display: flex;
@@ -245,6 +261,7 @@ color: rgb(13, 74, 104);
   margin: 2% auto auto 15%;
 }
 
+
 .statusPage {
   display: flex;
   flex-direction: row;
@@ -257,6 +274,66 @@ color: rgb(13, 74, 104);
   width: 200px;
   height: 160px;
 }
+.woosh-logo {
+  min-height: 50px;
+  max-height: 100px;
+  margin: 3%;
+}
+.dashboardPage{
+  margin: 8px;
+}
+.dashboardPage h2{
+  font-size: 350%;
+  font-family: 'Muli', Avenir, sans-serif;
+  text-align: center;
+}
+.services-div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  // margin: 2px;
+}
+.order-card{
+  border: 1px solid blue;
+  height: 320px;
+  width: 339px;
+  padding: 3px;
+  margin-right: 8px;
+
+}
+#order-delivered{
+  font-size: 120%;
+  color: rgb(244, 143, 48);
+  padding-top: 30px;
+
+}
+.list-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+.border{
+  font-size: 120%;
+  padding: 5px;
+  margin: 5px;
+  height: 250px;
+  width: 339px;
+}
+#pide-woosher{
+  text-align: center;
+  font-size: 130;
+  margin-top: 10%;
+}
+#pide-woosher a {
+  color: white;
+  background-color: #5A827F;
+  padding: 5px 11px;
+  border-style: 2px solid
+}
+#pide-woosher a:hover {
+  opacity: .65;
 
 .woosh-logo {
   min-height: 30px;

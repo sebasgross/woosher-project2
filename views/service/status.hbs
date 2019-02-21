@@ -1,3 +1,15 @@
+<nav id="navBar2">
+    {{#if loggedUser}}
+        <span>
+     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" height="60"> </a>
+    </span>
+        <span class="subNav">
+      <a class="nav-bold" href="/dashboard">DASHBOARD</a>
+      <a href="/logout">LOGOUT</a>
+    </span>
+    {{/if}}
+</nav>
+
 <h2>Request near by</h2>
 <section class="statusPage">
 {{#each services as |service|}}

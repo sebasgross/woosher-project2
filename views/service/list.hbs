@@ -1,5 +1,24 @@
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<h3> {{this.woosher.name}}</h3>
+<section class="list-container">
 {{#each services}}
-    {{user}}
-    {{woosher}}
-    {{active}}
+
+    <span class="border">
+{{!-- <section class="list-card"> --}}
+   
+   <p> Order to : {{this.username}}</p>
+    <p> Delivery to: {{this.user.location.address}}</p>
+    {{this.active}}
+    {{!-- </section> --}}
+ 
+
+  <a href="/service/detail/{{this._id}}" id="takeDetail" type="submit" >CHECK ORDER</a>
+ 
+</form>
+    </span>
+
 {{/each}}
+</section>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

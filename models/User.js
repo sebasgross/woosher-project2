@@ -29,6 +29,8 @@ const userSchema = new Schema(
       type: String,
       default: 'https://res.cloudinary.com/dpt8pbi8n/image/upload/v1550267245/kisspng-user-interface-design-computer-icons-default-stephen-salazar-photography-5b1462e1b19d70.1261504615280626897275.jpg',
     },
+    services: [
+    ]
 
   } , {timestamps:true}
 )

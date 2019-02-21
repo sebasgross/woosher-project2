@@ -18,25 +18,31 @@ function isLogged(req, res, next) {
     return res.redirect('/login')
   }
 
-
 router.get('/list',isLogged,isWoosher,(req,res,next)=>{
-        
-
-    Service.find()
+    Service.find({woosher: req.user._id})
+    .populate('user')
+    .populate('woosher')
     .then((services)=>{
-    res.render('service/list',services)
+        res.render("service/list",{services})
     })
-    .catch((e)=>next(e))
 })
+// router.post('/list',(req,res,next)=>{
+//     User.findByIdAndUpdate(req.params.id, { ...req.body})
+//   .then(()=>{
+//       res.redirect('/dashboard')
+//   })
+//   .catch((e)=>console.log(e))
+  
+//   })
 
 router.post('/detail/:id',isLogged,isWoosher,(req,res,next)=>{
-    Service.findByIdAndUpdate(req.params.id, { ...req.body, "addressTo.coordinates": req.user.location.coordinates}, { new: true })
+    Service.findByIdAndUpdate(req.params.id, { ...req.body, "addressTo.coordinates": req.user.location.coordinates,"woosher":req.user}, { new: true })
     .then(()=>{
         res.redirect('/service/status')
     })
     .catch((e)=>console.log(e))
 
-})
+})  
 
   router.get('/detail/:id',isLogged, isWoosher,(req,res,next)=>{
       const {id} = req.params
@@ -67,7 +73,6 @@ router.get('/new', isLogged,isUsuario, (req,res,next)=>{
 })
 
 router.post('/new', isLogged , isUsuario, (req,res,next)=>{
-
     req.body.addressFrom= {
         coordinates:[req.body.lng, req.body.lat]
         }
@@ -75,8 +80,8 @@ router.post('/new', isLogged , isUsuario, (req,res,next)=>{
     req.body.username = req.user.name
 
     Service.create(req.body)
-    .then(s=>{
-        res.redirect('auth/dashboard')
+    .then(()=>{
+        res.redirect('/dashboard')
     })
     .catch(err=>next(err))
 })

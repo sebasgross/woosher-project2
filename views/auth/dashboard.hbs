@@ -1,29 +1,81 @@
-<h2>Profile</h2>
+<nav id="navBar2">
+    {{#if loggedUser}}
+        <span>
+     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" height="60"> </a>
+    </span>
+        <span class="subNav">
+
+      <a href="/logout">LOGOUT</a>
+    </span>
+    {{else}}
+        <span>
+     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" height="60"> </a>
+    </span>
+    <span class="subNav">
+      <a class="nav-bold" href="/signup">SIGNUP</a>
+      <a href="/login">LOGIN</a>
+    </span>
+    {{/if}}
+</nav>
+
+<section class="dashboardPage">
+<h2>dash<b>b</b>oard</h2>
+
 
 <div class="user-div">
+    {{#ifCond user.role "USUARIO"}}
+        <div id="pide-woosher">
+            <a href="/service/new" tpye="submit">Get your Woosher now!</a>
+        </div>
+    {{/ifCond}}
     <img src="{{photoURL}}" alt="{{email}}" height="100" width="90">
 
     <h3>
-    {{name}} 
+    {{user.name}} 
     {{lastName}}
     </h3>
-    <h5>Your email: {{email}}</h5>
-    <p> Address: {{location.address}}</p>
+    <h5>Your email: {{user.email}}</h5>
+    <p> Address: {{user.location.address}}</p>
     <br>
-    {{#if isWoosher}}
+    
+    {{#ifCond user.role "USUARIO"}}
+    <a href="/become-woosher" type="button">Hazte Woosher</a>
     {{else}}
-    <a href="/service/authorize" type="button">Hazte Woosher</a>
     <p>
         Check available request:
         <a href="/service/status">Click here</a>
     </p>
-    {{/if}}
+    {{/ifCond}}
 </div>
 
 <div class="services-div">
-    {{#each service}}
-        <h4>{{active}}</h4>
-        <span>{{woosher.name}}</span>
-        <span>{{requestDate}}</span>
+    {{#each services as |service|}}
+    <section class="order-card">
+
+    
+    {{#if service.addressTo.coordinates}}
+
+    <h5>Dont wait to long {{service.username}} </h5><br>
+
+    <p><b>{{service.woosher.name}}</b> is taking care of your order</p><br>
+
+    <p>Order being delivered to:<b> {{service.user.location.address}}</b> </p>
+    {{else}}
+    <p>Your order is still being processed</p>
+    {{#if service.active}}
+    {{else}}
+    <p id="order-delivered">Your order has been delivered</p>
+    {{/if}}
+    {{/if}}
+    </section>
     {{/each}}
+
+    {{#ifCond user.role "WOOSHER"}}
+    <a href="/service/list" type="button">Check current orders</a>
+    {{/ifCond}}
+
+
+
 </div>
+
+</section>
