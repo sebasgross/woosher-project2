@@ -25,7 +25,7 @@ const serviceSchema = new Schema({
       airdry: Array,
       active: {
         type: Boolean,
-        default: false,
+        default: 0,
       },
 
       addressFrom: {
