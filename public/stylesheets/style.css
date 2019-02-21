@@ -247,7 +247,12 @@ a {
 .dashboardPage h2 {
   font-size: 350%;
   font-family: 'Muli', Avenir, sans-serif;
-  text-align: center; }
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0; }
+
+.dashboard-container h3 {
+  font-size: 180%; }
 
 .services-div {
   display: flex;
@@ -282,7 +287,7 @@ a {
 #pide-woosher {
   text-align: center;
   font-size: 130;
-  margin-top: 10%; }
+  margin-top: 20px; }
 
 #pide-woosher a {
   color: white;
@@ -310,5 +315,12 @@ a {
   flex-direction: column;
   align-items: center;
   padding: 2%; }
+
+.active-orders {
+  border: 1px solid black;
+  height: 100px;
+  width: 420px;
+  padding: 2px;
+  margin: 2px; }
 
 /*# sourceMappingURL=style.css.map */
