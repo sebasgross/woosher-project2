@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "heroku-postbuild": "bower install && grunt build",
     "start": "node ./bin/www",
     "dev": "DEBUG=woosher-ironhackproject2:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
