@@ -19,8 +19,8 @@
 
   {{#if service.active}}
   <form action="/service/detail/{{service._id}}" method="POST">
-  <input type="text" name='active' value="false" hidden>
-  <input id="desactivar-request" type="submit" value="Orden Entregada">
+  <input type="text" name='clothesPicked' value="true" hidden>
+  <input id="desactivar-request" type="submit" value="Estoy Afuera, dame tu ropa sucia">
 </form>
 
   {{else}}
@@ -29,16 +29,24 @@
   <input id="activar-request" type="submit" value="Accept request">
 </form>
   {{/if}}
+  {{#if service.clothesPicked}}
+    <form action="/service/detail/{{service._id}}" method="POST">
+  <input type="text" name='active' value="false" hidden>
+  <input id="desactivar-request" type="submit" value="LLegue con tu ropa!">
+</form>
+{{/if}}
 
+
+<a href='/service/status'>Go back</a>
 
 </section>
 <section>
 <div id="map"></div>
 
 
-<a href='/status'>Go back</a>
 
 </section>
+
 </section>
 <style>
   #map{
@@ -50,45 +58,33 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
+{{!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script> --}}
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
 <script>
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-zoom: 13,
-center:[{{service.addressFrom.coordinates}}]
+    var bounds = [[-99.215766, 19.271481], [-99.067508, 19.494349]]
 
-});
-const marker = new mapboxgl.Marker({
-  color: 'red'
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        zoom: 13,
+        center:[-99.133209, 19.432545],
+        zoom: 10,
+        maxBounds: bounds,
+    })
+
+    const marker = new mapboxgl.Marker({
+      color: 'red'
+    }).setLngLat([-99.133209, 19.432545]).addTo(map)
+
+    map.addControl(new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        countries: 'mx',
+        bbox: [-99.215766, 19.271481, -99.067508, 19.494349],
+    }), 'top-left');
   
-})
-
-
-.setLngLat([{{service.addressFrom.coordinates}}])
-.addTo(map)
-
-
-
-
-map.addControl(new MapboxDirections({
-accessToken: mapboxgl.accessToken
-}), 'top-left');
-
-
-map._controls[2].actions.setOriginFromCoordinates([{{service.addressFrom.coordinates}}])
-map._controls[2].actions.setDestinationFromCoordinates([{{user.location.coordinates}}])
-
-
-/*window.onload = function(){
-let time = document.getElementsByClassName('mapbox-directions-component mapbox-directions-route-summary').innerText
-
-document.getElementsByClassName('time').innerHTML = time
-  
-}
- */
-
+    map._controls[2].actions.setOriginFromCoordinates([{{service.addressFrom.coordinates}}])
+    map._controls[2].actions.setDestinationFromCoordinates([{{userCoords}}])
 </script>
-
-{{!-- 19.4024579,-99.1777904 --}}

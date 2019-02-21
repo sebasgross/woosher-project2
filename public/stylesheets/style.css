@@ -27,8 +27,7 @@ a {
   display: flex;
   justify-content: space-around;
   width: 100vw;
-  height: 90vh; 
-}
+  height: 90vh; }
 
 .signup-container {
   padding: 3% 3% 0 3%;
@@ -73,17 +72,31 @@ a {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
-  align-content: center; }
+  align-items: center; }
 
 .login-container {
   border: 1px solid #abecfc;
-  height: 350px;
-  width: 380px; }
+  width: 40%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column; }
 
 .login-container h4 {
   color: #0d4a68;
-  padding-left: 20px; }
+  font-weight: 700;
+  font-size: 1.5em;
+  align-self: center; }
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2%;
+  width: 25%; }
+
+.flex p {
+  margin-right: 5%;
+  font-size: 15px; }
 
 .servicePage {
   max-height: 100vh;
@@ -224,22 +237,9 @@ a {
   height: 160px; }
 
 .woosh-logo {
-  min-height: 30px;
-  max-height: 80px;
-  margin: 5%; }
-
-.header {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  width: 100vw; }
-
-#signup-map {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2%; }
+  min-height: 50px;
+  max-height: 100px;
+  margin: 3%; }
 
 .dashboardPage {
   margin: 8px; }
@@ -292,5 +292,23 @@ a {
 
 #pide-woosher a:hover {
   opacity: .65; }
+
+.woosh-logo {
+  min-height: 30px;
+  max-height: 80px;
+  margin: 5%; }
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 100vw; }
+
+#signup-map {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%; }
 
 /*# sourceMappingURL=style.css.map */

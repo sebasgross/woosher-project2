@@ -24,18 +24,16 @@
 
         <p>
       <label>
-        
           <input id="indeterminate-checkbox" type="checkbox" />
           <span>Airdry Clothes?</span>
+<<<<<<< HEAD
 
        
-            {{!-- <textarea id="textarea"form="form_id"></textarea> --}}
+=======
+>>>>>>> 4910a23e799602db369bc3e3352c1390b610b13d
       </label>
     </p>
     <div>
-
-
-
 
       <div id="map"></div>
 
@@ -59,25 +57,26 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
 <script>
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-
-});
-const geoCoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken
-})
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
+    var bounds = [[-99.215766, 19.271481], [-99.067508, 19.494349]]
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-99.133209, 19.432545],
+        zoom: 10,
+        maxBounds: bounds,
+    })
+        const geoCoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        countries: 'mx',
+        bbox: [-99.215766, 19.271481, -99.067508, 19.494349],
+    })
 map.addControl(geoCoder)
 
 geoCoder.on('result',(res) =>{
 document.getElementById('lng').value = res.result.center[0]
 document.getElementById('lat').value = res.result.center[1]
-
   
 })
 
-console.log({{service}})
-
 </script>
-

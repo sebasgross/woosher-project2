@@ -80,7 +80,6 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
 <script>
-
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ'
 
     var bounds = [[-99.215766, 19.271481], [-99.067508, 19.494349]]
@@ -93,11 +92,19 @@
         maxBounds: bounds,
     })
 
-    map.addControl(new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
 
+    const geoCoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
         countries: 'mx',
         bbox: [-99.215766, 19.271481, -99.067508, 19.494349],
+    })
+map.addControl(geoCoder)
 
-    }))
+
+geoCoder.on('result',(res) =>{
+document.getElementById('lng').value = res.result.center[0]
+document.getElementById('lat').value = res.result.center[1]
+document.getElementById('address').value = res.result.place_name
+    
+})
 </script>
