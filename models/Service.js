@@ -35,6 +35,10 @@ const serviceSchema = new Schema({
         },
         coordinates: [],
       },
+      clothesPicked:{
+        type: Boolean,
+        default: false,
+      },
       woosher:{
         type: Schema.Types.ObjectId,
         ref: "User",

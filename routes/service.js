@@ -38,7 +38,7 @@ router.get('/list',isLogged,isWoosher,(req,res,next)=>{
 router.post('/detail/:id',isLogged,isWoosher,(req,res,next)=>{
     Service.findByIdAndUpdate(req.params.id, { ...req.body, "addressTo.coordinates": req.user.location.coordinates,"woosher":req.user}, { new: true })
     .then(()=>{
-        res.redirect('/service/status')
+        res.redirect('/dashboard')
     })
     .catch((e)=>console.log(e))
 

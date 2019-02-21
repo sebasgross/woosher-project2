@@ -19,8 +19,8 @@
 
   {{#if service.active}}
   <form action="/service/detail/{{service._id}}" method="POST">
-  <input type="text" name='active' value="false" hidden>
-  <input id="desactivar-request" type="submit" value="Orden Entregada">
+  <input type="text" name='clothesPicked' value="true" hidden>
+  <input id="desactivar-request" type="submit" value="Estoy Afuera, dame tu ropa sucia">
 </form>
 
   {{else}}
@@ -29,6 +29,13 @@
   <input id="activar-request" type="submit" value="Accept request">
 </form>
   {{/if}}
+  {{#if service.clothesPicked}}
+    <form action="/service/detail/{{service._id}}" method="POST">
+  <input type="text" name='active' value="true" hidden>
+  <input id="desactivar-request" type="submit" value="LLegue con tu ropa!">
+</form>
+{{/if}}
+
 
 
 </section>
