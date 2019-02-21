@@ -4,6 +4,17 @@ const User = require('../models/User')
 const passport = require('passport')
 const Service = require('../models/Service')
 
+const isWoosher = (req, res, next) => {
+  if (!req.user) return res.redirect('/')
+  if (req.user.role === 'WOOSHER') return next()
+  return res.redirect('/')
+}
+const isUsuario = (req, res, next) => {
+  if (!req.user) return res.redirect('/')
+  if (req.user.role === 'USUARIO') return next()
+  return res.redirect('/')
+}
+
 function isLogged(req, res, next) {
   if (req.isAuthenticated()) return next()
   return res.redirect('/login')
@@ -53,23 +64,45 @@ router.post('/login', passport.authenticate('local'), (req, res, next) => {
   res.redirect('/dashboard')
 })
 
-router.get('/dashboard', isLogged, (req, res, next) => {
+router.get('/dashboard', isLogged,(req, res, next) => {
   let {id} = req.user
   User.findById(id)
-      .then((user)=>{
-        res.render('auth/dashboard', user)
+  .then( user => {
+    Service.find({username: user.name}).populate("woosher").populate("user")
+      .then(services => {
+        user.services = services
+        res.render('auth/dashboard', {user, services})
       })
       .catch(error => {
         res.render('auth/dashboard', { error })
-      })
-  // Service.find({ user: id }).sort({createdAt:-1}).limit(5)
-  //     .then(({services})=>{
-  //       res.render('auth/dashboard', {services})
+      });
+  })
+  .catch(error => {
+    res.render('auth/dashboard', { error })
+  });
+  // Promise.all([ User.findById(id), Service.find({username: req.user.name}).populate("woosher") ] )
+  //     .then(([user, services])=>{
+  //       //console.log(result[1])
+  //       user.services = services
+  //       res.render('auth/dashboard', user)
   //     })
-  //     .catch(error => {
-  //       res.render('auth/dashboard', { error })
-  //     })
+      // .catch(error => {
+      //   res.render('auth/dashboard', { error })
+      // });
+
 })
+router.get('/become-woosher',(req,res,next)=>{
+  res.render('auth/becomeW')
+})
+router.post('/become-woosher',(req,res,next)=>{
+  User.findByIdAndUpdate(req.user.id, { ...req.body})
+.then(()=>{
+    res.redirect('/dashboard')
+})
+.catch((e)=>console.log(e))
+
+})
+
 
 router.get('/logout', (req, res, next) => {
   req.logOut()

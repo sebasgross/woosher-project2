@@ -27,8 +27,9 @@ a {
 .signupPage{
   display: flex;
   justify-content: space-around;
-  margin-top: 25px;
+
   max-width: 100vw;
+  max-height: 100vh;
   transform: scale(0.95)
 }
 .signup-container{
@@ -248,7 +249,6 @@ color: rgb(13, 74, 104);
   border: none;
   margin: 2% auto auto 15%;
 }
-<<<<<<< HEAD
 .statusPage{
   display: flex;
   flex-direction: row;
@@ -260,11 +260,33 @@ color: rgb(13, 74, 104);
   border: 1px solid black;
   width: 200px;
   height: 160px;
-=======
-
+}
 .woosh-logo {
   min-height: 50px;
   max-height: 100px;
   margin: 3%;
->>>>>>> 90ce82a6a3461ca7b64ecf3dfbd9967ff1ef0f3d
+}
+.dashboardPage{
+  margin: 8px;
+}
+.services-div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  // margin: 2px;
+}
+.order-card{
+  border: 1px solid blue;
+  height: 320px;
+  width: 339px;
+  padding: 3px;
+  margin-right: 8px;
+
+}
+#order-delivered{
+  font-size: 120%;
+  color: rgb(244, 143, 48);
+  padding-top: 30px;
+
 }

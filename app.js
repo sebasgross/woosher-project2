@@ -73,7 +73,15 @@ function isLogged(req, res, next) {
     next()
   }
 }
-//
+//handlebar
+hbs.registerHelper('ifCond',function(v1,v2,options){
+  if(v1 === v2){
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
+
 
 const index = require('./routes/index');
 const auth = require('./routes/auth')

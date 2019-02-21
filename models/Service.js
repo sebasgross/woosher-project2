@@ -33,14 +33,6 @@ const serviceSchema = new Schema({
           type: String,
           default: 'Point',
         },
-        // required: {
-        //   type: Boolean,
-        //   default: true,
-        // },
-        active: {
-          type: Boolean,
-          default: false,
-        },
         coordinates: [],
       },
       woosher:{
@@ -52,10 +44,6 @@ const serviceSchema = new Schema({
           type: String,
           default: 'Point'
         },
-          active: {
-            type: Boolean,
-            default: false,
-          },
           coordinates: [],
         },
 
