@@ -155,33 +155,10 @@ a {
   height: 30px;
   width: 80px; }
 
-#navBar {
-  padding: 25px;
-  height: 80px;
-  box-sizing: border-box;
-  background: #0d4a68; }
-
 #navBar2 {
-  display: flex;
-  padding: 10px;
   height: 80px;
   box-sizing: border-box;
-  justify-content: space-between;
-  align-content: center;
   background: #0d4a68; }
-
-.subNav {
-  display: flex;
-  align-content: center;
-  justify-content: space-around; }
-
-.subNav a {
-  font-weight: 400;
-  letter-spacing: 3px;
-  align-self: flex-start; }
-
-.subNav a:hover {
-  color: #abecfc; }
 
 .detail-request {
   display: flex;
@@ -197,33 +174,6 @@ a {
 .map-detail {
   height: 500px;
   width: 500px; }
-
-#home-view {
-  color: #0d4a68;
-  padding: 50px;
-  height: 90vh;
-  position: relative; }
-
-#home-view h3 {
-  font-weight: bolder;
-  font-size: 50px; }
-
-#home-view h5 {
-  width: 50%; }
-
-#home-view img {
-  position: absolute;
-  right: 30px;
-  bottom: 40px; }
-
-#home-view button {
-  background-color: #0d4a68;
-  color: floralwhite;
-  border-radius: 10px;
-  width: 15%;
-  padding: 20px;
-  border: none;
-  margin: 2% auto auto 15%; }
 
 .statusPage {
   display: flex;
@@ -322,5 +272,71 @@ a {
   width: 420px;
   padding: 2px;
   margin: 2px; }
+
+#navBar {
+  height: 12vh;
+  background-color: #0d4a68;
+  border-bottom: 2px solid floralwhite;
+  position: fixed; }
+
+#nav-logout {
+  float: right;
+  padding-right: 10px; }
+
+.subNav {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+  margin-top: 2%; }
+
+.subNav a:hover {
+  text-decoration: none;
+  color: #abecfc; }
+
+#home-view {
+  height: 100vh; }
+
+#home-view video {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%; }
+
+.h1-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+.h1-center h1 {
+  color: floralwhite;
+  font-weight: 800;
+  font-size: 120px; }
+
+#landing-bottom {
+  margin-top: 100px;
+  height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  padding: 9%;
+  align-items: center; }
+
+#landing-bottom div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 35%; }
+
+.btn-landing {
+  border-radius: 10px;
+  background-color: #0d4a68;
+  color: floralwhite;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 600; }
+
+#landing-bottom h2 {
+  font-size: 50px;
+  margin-bottom: -10px; }
 
 /*# sourceMappingURL=style.css.map */

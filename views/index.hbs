@@ -3,31 +3,35 @@
     <span class="subNav">
       <a class="nav-bold" href="/profile">DASHBOARD</a>
              <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" class="woosh-logo"> </a>
-      <a href="/logout">LOGOUT</a>
+      <a href="/logout">LOG OUT</a>
     </span>
     {{else}}
     <span class="subNav">
-      <a class="nav-bold" href="/signup">SIGNUP</a>
+      <a class="nav-bold" href="/signup">SIGN UP</a>
              <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" class="woosh-logo"> </a>
-      <a href="/login">LOGIN</a>
+      <a href="/login">LOG IN</a>
     </span>
     {{/if}}
 </nav>
 
-<div uk-parallax="bgy: -200">
-
 <section id="home-view">
-    <h3>Laundry made easy</h3>
-    <br>
-    <h5>
-        <b>Do you need an extra flow of income or do you need to spend less washing your clothes?</b> <br><br> <b>Woosh</b> helps people connect
-    to get laundry done. If you're a <b>Woosher</b>, you can earn money from washing
-    and if you need your clothes washed but have no time or money to take it to the laundry, <b>Wooshers are here for you!</b>
-    </h5>
-    <br>
-    <a href="/signup"><button>Get Started</button></a>
-    <img width="50%" src="/images/laundry.png" alt="laundry machine">
+        <video loop muted autoplay>
+            <source src="images/washer.mov" type="video/mp4">
+        </video>
+        <div class="h1-center">
+            <h1>LAUNDRY SIMPLIFIED</h1>
+        </div>
 </section>
 
-</div>
-
+<section id="landing-bottom">
+    <div>
+    <br>
+        <h2><b>Woosh</b> helps people connect</h2>
+    <h4>
+        If you're a <b>Woosher</b>, you can earn money from laundrying
+        and if you need your clothes washed but have no time or money to take it to the laundry, <b>Wooshers are here for you!</b>
+    </h4>
+    <a href="/signup"><button class="btn btn-landing">GET STARTED</button></a>
+    </div>
+    <img width="50%" src="/images/laundry.png" alt="laundry machine">
+</section>
