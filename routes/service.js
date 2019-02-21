@@ -46,11 +46,13 @@ router.post('/detail/:id',isLogged,isWoosher,(req,res,next)=>{
 
   router.get('/detail/:id',isLogged, isWoosher,(req,res,next)=>{
       const {id} = req.params
-
+    const userCoords = [Number(req.user.location.coordinates[0]),Number(req.user.location.coordinates[1])]
+        
       Service.findById(id)
       .populate('user')
       .then(service=>{
-        res.render('service/detail',{service, user: req.user})
+          console.log(service.addressFrom.coordinates)
+        res.render('service/detail',{service, userCoords})
       })
       .catch((e)=>next(e))
   })

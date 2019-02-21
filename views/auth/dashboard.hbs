@@ -52,28 +52,48 @@
     {{#each services as |service|}}
     <section class="order-card">
 
-    
+    {{#if service.active}}    
     {{#if service.addressTo.coordinates}}
-
+    {{#if service.clothesPicked}}
+    {{else}}
     <h5>Dont wait to long {{service.username}} </h5><br>
 
     <p><b>{{service.woosher.name}}</b> is taking care of your order</p><br>
 
     <p>Order being delivered to:<b> {{service.user.location.address}}</b> </p>
+    {{/if}}
+    {{/if}}
+    {{/if}}
+    
+    {{#if service.addressTo.coordinates}}
     {{else}}
     <p>Your order is still being processed</p>
+    {{/if}}
+
+
+    {{#if service.clothesPicked }}
+    {{#if service.active}}
+  
+    <p id="order-delivered">Woosher is Outside, have ready your dirty laundry bag</p>
+    
+    {{/if}}
+    {{/if}}
+    {{#if service.clothesPicked }}
     {{#if service.active}}
     {{else}}
-    <p id="order-delivered">Your order has been delivered</p>
+        <p>Your order has been delivered</p>
     {{/if}}
     {{/if}}
+
     </section>
     {{/each}}
+
+   
 
     {{#ifCond user.role "WOOSHER"}}
     <a href="/service/list" type="button">Check current orders</a>
     {{/ifCond}}
-
+    
 
 
 </div>
