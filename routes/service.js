@@ -26,6 +26,14 @@ router.get('/list',isLogged,isWoosher,(req,res,next)=>{
         res.render("service/list",{services})
     })
 })
+// router.post('/list',(req,res,next)=>{
+//     User.findByIdAndUpdate(req.params.id, { ...req.body})
+//   .then(()=>{
+//       res.redirect('/dashboard')
+//   })
+//   .catch((e)=>console.log(e))
+  
+//   })
 
 router.post('/detail/:id',isLogged,isWoosher,(req,res,next)=>{
     Service.findByIdAndUpdate(req.params.id, { ...req.body, "addressTo.coordinates": req.user.location.coordinates,"woosher":req.user}, { new: true })
