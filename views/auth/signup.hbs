@@ -1,21 +1,13 @@
-{{!-- <section class="signup-container">
-    <div>
-        <h3>Sign up</h3>
-        <form action="/signup" method="POST">
-            <p> Name:</p>
-            <input type="text" name="name">
-            <p> Last name:</p>
-            <input type="text" name="lastName">
-            <p> Email: </p>
-            <input type="email" name="email">
-            <p> Profile picture: </p>
-            <input type="file" name="photoURL">
-        </form>
-    </div>
-</section> --}}
 <section class="signupPage">
 <section class="signup-container">
-    <h4>Sign up to Woosher</h4>
+    <img class="woosh-logo" src="http://res.cloudinary.com/dpt8pbi8n/image/upload/v1550545408/Woosh.png">
+
+    {{#if error}}
+        <h4>Sign up</h4>
+        <h6 style="color: red;">--- {{error}} ---</h6>
+    {{else}}
+        <h4>Sign up</h4>
+    {{/if}}
 
 <div clas="signup-card">
     <div class="row">
@@ -30,6 +22,7 @@
                     <label for="last_name">Last Name</label>
                 </div>
             </div>
+  
             <div class="row">
                 <div class="input-field col s12 ">
                     <input id="email" type="email" class="validate" name="email">
@@ -42,6 +35,12 @@
                     <label for="password">Password</label>
                 </div>
                 </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password2" type="password" class="validate" name="password2">
+                    <label for="password2">Re-type Password</label>
+                </div>
+            </div>
                 <div>
                 <div class="file-field input-field">
                     <div class="btn">
@@ -56,11 +55,48 @@
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
                 </button>
-            </div>
+            
+  <input type="text" name="lng" hidden="true" id="lng" >
+  <input type="text" name="lat" hidden="true" id="lat">
+  <input type="text" name="address" hidden="true" id="address">
 
+               
 
-        </form>
+                </form>
+                </div>
     </div>
     </div>
+</section>          
+    <section class="address">
+    <p>Write address here:</p>
+
+    <div class="map-signup" id="map"></div>  
+    </section>
 </section>
-</section>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+
+});
+const geoCoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken
+})
+map.addControl(geoCoder)
+
+geoCoder.on('result',(res) =>{
+    console.log(res.result.place_name)
+document.getElementById('lng').value = res.result.center[0]
+document.getElementById('lat').value = res.result.center[1]
+document.getElementById('address').value = res.result.place_name
+  
+})
+
+console.log(geoCoder)
+
+</script>

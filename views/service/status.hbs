@@ -1,0 +1,37 @@
+<h2>Request near by</h2>
+<section class="statusPage">
+{{#each services as |service|}}
+<section class="status-container">
+
+{{#if service.active}}
+<p>in route</p>
+{{else}}
+<p>{{service.username}}</p>
+<p>{{addressFrom.address}}</p>
+
+<a href="/service/detail/{{service._id}}">Check route</a>
+
+{{/if}}
+</section>
+
+{{/each}}
+</section>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script>
+
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXNncm9zcyIsImEiOiJjanMxeGpzdzUwaGo1NDNvODhmN3JiYXAwIn0.6Bk7mxTNH-SvuwrfOSGpdQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+zoom: 13,
+
+
+});
+
+
+
+</script>
+
+
