@@ -1,50 +1,45 @@
 <nav id="navBar2">
-    {{#if loggedUser}}
         <span>
-     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" height="60"> </a>
+     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" width="140"height="60"> </a>
     </span>
-        <span class="subNav">
-
-      <a href="/logout">LOGOUT</a>
+        {{!-- <span class="subNav"> --}}
+      <a id="nav-logout"href="/logout">LOGOUT</a>
     </span>
-    {{else}}
-        <span>
-     <a href="/"> <img src="images/Woosh.png" class="woosh-logo" alt="woosh-logo" height="60"> </a>
-    </span>
-    <span class="subNav">
-      <a class="nav-bold" href="/signup">SIGNUP</a>
-      <a href="/login">LOGIN</a>
-    </span>
-    {{/if}}
 </nav>
 
 <section class="dashboardPage">
 <h2>dash<b>b</b>oard</h2>
 
-
+<section class="dashboard-container">
 <div class="user-div">
     {{#ifCond user.role "USUARIO"}}
         <div id="pide-woosher">
             <a href="/service/new" tpye="submit">Get your Woosher now!</a>
         </div>
     {{/ifCond}}
-    <img src="{{photoURL}}" alt="{{email}}" height="100" width="90">
+    <img src="{{user.photoURL}}" alt="{{email}}" id="profile-pic"height="150" width="120">
 
     <h3>
     {{user.name}} 
     {{lastName}}
     </h3>
-    <h5>Your email: {{user.email}}</h5>
+    <h4>Your email: {{user.email}}</h4>
     <p> Address: {{user.location.address}}</p>
     <br>
     
     {{#ifCond user.role "USUARIO"}}
-    <a href="/become-woosher" type="button">Hazte Woosher</a>
-    {{else}}
     <p>
-        Check available request:
-        <a href="/service/status">Click here</a>
+        <b>You want to earn money with Woosh?</b>
+    <a href="/become-woosher" type="button">Become a Woosher</a>
     </p>
+    {{else}}
+    <div class="active-orders">
+    <p>
+        People need you {{user.name}},<br> 
+        check available request:<br>
+        <a href="/service/status" type="button">Click here</a>
+    </p>
+    </div>
     {{/ifCond}}
 </div>
 
@@ -91,11 +86,14 @@
    
 
     {{#ifCond user.role "WOOSHER"}}
-    <a href="/service/list" type="button">Check current orders</a>
+    <div class="active-orders">
+    <p>Check all your active orders.</p>
+    <a href="/service/list" type="button">Current orders</a>
+    </div>
     {{/ifCond}}
     
 
-
+</section>
 </div>
 
 </section>

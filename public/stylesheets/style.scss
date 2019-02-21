@@ -187,41 +187,10 @@ color: rgb(13, 74, 104);
    width:80px;
  }
 
-#navBar {
-  padding: 25px;
-  height: 80px;
-  box-sizing: border-box;
-  background: #0d4a68;
-}
 #navBar2{
-  display: flex;
-  padding: 10px;
   height: 80px;
   box-sizing: border-box;
-  justify-content: space-between;
-  align-content: center;
   background: #0d4a68;
-}
-// .navbar2 img{
-//   min-height: 50px;
-//   max-height: 100px;
-//   margin: 3%;
-// }
-
-.subNav {
-  display: flex;
-  align-content: center;
-  justify-content: space-around;
-}
-
-.subNav a {
-  font-weight: 400;
-  letter-spacing: 3px;
-  align-self: flex-start;
-}
-
-.subNav a:hover {
-  color: #abecfc;
 }
 
 .detail-request {
@@ -241,39 +210,6 @@ color: rgb(13, 74, 104);
   height: 500px;
   width: 500px;
 }
-
-#home-view {
-  color: #0d4a68;
-  padding: 50px;
-  height: 90vh;
-  position: relative;
-}
-
-#home-view h3 {
-  font-weight: bolder;
-  font-size: 50px;
-}
-
-#home-view h5 {
-  width: 50%;
-}
-
-#home-view img {
-  position: absolute;
-  right: 30px;
-  bottom: 40px;
-}
-
-#home-view button {
-  background-color: #0d4a68;
-  color: floralwhite;
-  border-radius: 10px;
-  width: 15%;
-  padding: 20px;
-  border: none;
-  margin: 2% auto auto 15%;
-}
-
 
 .statusPage {
   display: flex;
@@ -299,7 +235,13 @@ color: rgb(13, 74, 104);
   font-size: 350%;
   font-family: 'Muli', Avenir, sans-serif;
   text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
+.dashboard-container h3{
+  font-size: 180%;
+}
+
 .services-div{
   display: flex;
   flex-direction: row;
@@ -335,7 +277,7 @@ color: rgb(13, 74, 104);
 #pide-woosher{
   text-align: center;
   font-size: 130;
-  margin-top: 10%;
+  margin-top: 20px;
 }
 #pide-woosher a {
   color: white;
@@ -343,6 +285,7 @@ color: rgb(13, 74, 104);
   padding: 5px 11px;
   border-style: 2px solid
 }
+
 #pide-woosher a:hover {
   opacity: .65;
 }
@@ -366,3 +309,94 @@ color: rgb(13, 74, 104);
   align-items: center;
   padding: 2%;
 }
+.active-orders{
+  border: 1px solid black;
+  height: 100px;
+  width: 420px;
+  padding: 2px;
+  margin: 2px;
+}
+
+#navBar {
+  height: 12vh;
+  background-color: #0d4a68;
+  border-bottom: 2px solid floralwhite;
+  position: fixed;
+  
+}
+#nav-logout{
+  float: right;
+  padding-right: 10px;
+
+}
+
+.subNav {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+  margin-top: 2%;
+}
+
+.subNav a:hover {
+  text-decoration: none;
+  color: #abecfc;
+}
+
+//When this are active the nav bar doesn't respond
+
+#home-view {
+  height: 100vh;
+}
+
+#home-view video {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.h1-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.h1-center h1 {
+  color: floralwhite;
+  font-weight: 800;
+  font-size: 120px;
+}
+
+//When this are active the nav bar doesn't respond
+
+#landing-bottom {
+  margin-top: 100px;
+  height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  padding: 9%;
+  align-items: center;
+}
+
+#landing-bottom div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 35%;
+}
+
+.btn-landing {
+  border-radius: 10px;
+  background-color: #0d4a68;
+  color: floralwhite;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+#landing-bottom h2 {
+  font-size: 50px;
+  margin-bottom: -10px;
+}
+

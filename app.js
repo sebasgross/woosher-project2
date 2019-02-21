@@ -25,15 +25,26 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+//session
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  httpOnly: true,
+  saveUninitialized: true,
+  cookie: { httpOnly: true, maxAge: 2419200000 },
 
-app.use(
-  session({
-    secret: process.env.SECRET,
-    resave: true,
-    saveUninitialized: true,
-    cookie: { maxAge: 60000 },
-  }),
-)
+
+}));
+// app.use(
+//   session({
+//     secret: process.env.SECRET,
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: { maxAge: 60000 },
+//   }),
+// )
+
+
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -80,33 +91,33 @@ hbs.registerHelper('ifCond',function(v1,v2,options){
   }
   return options.inverse(this);
 });
-hbs.registerHelper('ifCond2', function (v1, operator, v2, options) {
+// hbs.registerHelper('ifCond2', function (v1, operator, v2, options) {
 
-  switch (operator) {
-      case '==':
-          return (v1 == v2) ? options.fn(this) : options.inverse(this);
-      case '===':
-          return (v1 === v2) ? options.fn(this) : options.inverse(this);
-      case '!=':
-          return (v1 != v2) ? options.fn(this) : options.inverse(this);
-      case '!==':
-          return (v1 !== v2) ? options.fn(this) : options.inverse(this);
-      case '<':
-          return (v1 < v2) ? options.fn(this) : options.inverse(this);
-      case '<=':
-          return (v1 <= v2) ? options.fn(this) : options.inverse(this);
-      case '>':
-          return (v1 > v2) ? options.fn(this) : options.inverse(this);
-      case '>=':
-          return (v1 >= v2) ? options.fn(this) : options.inverse(this);
-      case '&&':
-          return (v1 && v2) ? options.fn(this) : options.inverse(this);
-      case '||':
-          return (v1 || v2) ? options.fn(this) : options.inverse(this);
-      default:
-          return options.inverse(this);
-  }
-});
+//   switch (operator) {
+//       case '==':
+//           return (v1 == v2) ? options.fn(this) : options.inverse(this);
+//       case '===':
+//           return (v1 === v2) ? options.fn(this) : options.inverse(this);
+//       case '!=':
+//           return (v1 != v2) ? options.fn(this) : options.inverse(this);
+//       case '!==':
+//           return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+//       case '<':
+//           return (v1 < v2) ? options.fn(this) : options.inverse(this);
+//       case '<=':
+//           return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+//       case '>':
+//           return (v1 > v2) ? options.fn(this) : options.inverse(this);
+//       case '>=':
+//           return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+//       case '&&':
+//           return (v1 && v2) ? options.fn(this) : options.inverse(this);
+//       case '||':
+//           return (v1 || v2) ? options.fn(this) : options.inverse(this);
+//       default:
+//           return options.inverse(this);
+//   }
+// });
 
 
 
