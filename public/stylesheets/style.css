@@ -72,17 +72,31 @@ a {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
-  align-content: center; }
+  align-items: center; }
 
 .login-container {
   border: 1px solid #abecfc;
-  height: 350px;
-  width: 380px; }
+  width: 40%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column; }
 
 .login-container h4 {
   color: #0d4a68;
-  padding-left: 20px; }
+  font-weight: 700;
+  font-size: 1.5em;
+  align-self: center; }
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2%;
+  width: 25%; }
+
+.flex p {
+  margin-right: 5%;
+  font-size: 15px; }
 
 .servicePage {
   max-height: 100vh;
