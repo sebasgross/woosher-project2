@@ -277,17 +277,18 @@ a {
   height: 12vh;
   background-color: #0d4a68;
   border-bottom: 2px solid floralwhite;
-  position: fixed; }
+  position: fixed;
+  z-index: 1; }
 
 #nav-logout {
   float: right;
   padding-right: 10px; }
 
 .subNav {
+  margin-top: 3vh;
   display: flex;
   width: 100vw;
-  justify-content: space-around;
-  margin-top: 2%; }
+  justify-content: space-around; }
 
 .subNav a:hover {
   text-decoration: none;
@@ -338,5 +339,25 @@ a {
 #landing-bottom h2 {
   font-size: 50px;
   margin-bottom: -10px; }
+
+#navbartwo {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  box-sizing: border-box;
+  background: #0d4a68; }
+
+#navbartwo * {
+  margin-left: 10px; }
+
+.subnavtwo {
+  display: flex;
+  width: 50vw;
+  justify-content: flex-end; }
+
+.subnavtwo * {
+  margin-right: 40px; }
 
 /*# sourceMappingURL=style.css.map */

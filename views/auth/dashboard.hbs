@@ -1,10 +1,12 @@
-<nav id="navBar2">
+<nav id="navbartwo">
+    {{#if loggedUser}}
         <span>
-     <a href="/"> <img src="images/Woosh.png" alt="woosh-logo" width="140"height="60"> </a>
+        <a href="/"> <img src="/images/Woosh.png" alt="woosh-logo" width="140" height="60"> </a>
     </span>
-        {{!-- <span class="subNav"> --}}
-      <a id="nav-logout"href="/logout">LOGOUT</a>
-    </span>
+        <span class="subnavtwo">
+                <a href="/logout">LOGOUT</a>
+            </span>
+    {{/if}}
 </nav>
 
 <section class="dashboardPage">
