@@ -9,96 +9,74 @@
     {{/if}}
 </nav>
 
-<section class="dashboardPage">
-<h2>dash<b>b</b>oard</h2>
+<h2 class="dashboardTitle">DASHBOARD</h2>
 
 <section class="dashboard-container">
-<div class="user-div">
-    {{#ifCond user.role "USUARIO"}}
-        <div id="pide-woosher">
-            <a href="/service/new" tpye="submit">Get your Woosher now!</a>
+    <div class="user-div">
+        <img src="{{user.photoURL}}" alt="{{user.email}}" id="profile-pic">
+        <h3>
+            {{user.name}}
+            {{user.lastName}}
+        </h3>
+        <h4>Your email</h4>
+        <p>{{user.email}}</p>
+        <h4> Address</h4>
+        <p>{{user.location.address}}</p>
+        <button><a href="/edit/{{user._id}}"> Edit Info</a></button>
+    </div>
+
+    <div class="services-div">
+
+        {{#ifCond user.role "USUARIO"}}
+            <p>
+                <b>You want to earn money with Woosh?</b>
+                <a href="/become-woosher" type="button">Become a Woosher</a>
+            </p>
+        {{else}}
+            <div class="active-orders">
+                    <p>See all Woosher requests </p>
+                    <button><a href="/service/status">Requests</a></button>
+            </div>
+        {{/ifCond}}
+
+        {{#each services as |service|}}
+
+                {{#if service.active}}
+                    {{#if service.addressTo.coordinates}}
+                        {{#if service.clothesPicked}}
+                        {{else}}
+                            <p>Dont wait to long {{service.username}} </p><br>
+                            <p><b>{{service.woosher.name}}</b> is taking care of your order</p><br>
+                            <p>Order being delivered to:<b> {{service.user.location.address}}</b> </p>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+
+                {{#if service.addressTo.coordinates}}
+                {{else}}
+                    <p>Your order is still being processed, stay calm {{user.name}}</p>
+                {{/if}}
+
+                {{#if service.clothesPicked }}
+                    {{#if service.active}}
+                        <p id="order-delivered">Woosher is Outside, have ready your dirty laundry bag</p>
+                    {{/if}}
+                {{/if}}
+
+                {{#if service.clothesPicked }}
+                    {{#if service.active}}
+                    {{else}}
+                        <p>Your order  has been delivered</p>
+                    {{/if}}
+                {{/if}}
+
+        {{/each}}
+
+        {{#ifCond user.role "WOOSHER"}}
+            <div class="active-orders">
+                <p>Check all <b>your</b> active orders.</p>
+                <button><a href="/service/list">Current Orders</a></button>
+            </div>
+        {{/ifCond}}
         </div>
-    {{/ifCond}}
-    <div>
-    <button><a href="/edit/{{user._id}}"> Edit Info</a></button>
-    </div>
-    <img src="{{user.photoURL}}" alt="{{email}}" id="profile-pic"height="150" width="120">
-
-    <h3>
-    {{user.name}} 
-    {{lastName}}
-    </h3>
-    <h4>Your email: {{user.email}}</h4>
-    <p> Address: {{user.location.address}}</p>
-    <br>
-    
-    {{#ifCond user.role "USUARIO"}}
-    <p>
-        <b>You want to earn money with Woosh?</b>
-    <a href="/become-woosher" type="button">Become a Woosher</a>
-    </p>
-    {{else}}
-    <div class="active-orders">
-    <p>
-        People need you {{user.name}},<br> 
-        check available request:<br>
-        <a href="/service/status" type="button">Click here</a>
-    </p>
-    </div>
-    {{/ifCond}}
-</div>
-
-<div class="services-div">
-    {{#each services as |service|}}
-    <section class="order-card">
-
-    {{#if service.active}}    
-    {{#if service.addressTo.coordinates}}
-    {{#if service.clothesPicked}}
-    {{else}}
-    <h5>Dont wait to long {{service.username}} </h5><br>
-
-    <p><b>{{service.woosher.name}}</b> is taking care of your order</p><br>
-
-    <p>Order being delivered to:<b> {{service.user.location.address}}</b> </p>
-    {{/if}}
-    {{/if}}
-    {{/if}}
-    
-    {{#if service.addressTo.coordinates}}
-    {{else}}
-    <p>Your order is still being processed</p>
-    {{/if}}
-
-
-    {{#if service.clothesPicked }}
-    {{#if service.active}}
-  
-    <p id="order-delivered">Woosher is Outside, have ready your dirty laundry bag</p>
-    
-    {{/if}}
-    {{/if}}
-    {{#if service.clothesPicked }}
-    {{#if service.active}}
-    {{else}}
-        <p>Your order has been delivered</p>
-    {{/if}}
-    {{/if}}
-
-    </section>
-    {{/each}}
-
-   
-
-    {{#ifCond user.role "WOOSHER"}}
-    <div class="active-orders">
-    <p>Check all your active orders.</p>
-    <a href="/service/list" type="button">Current orders</a>
-    </div>
-    {{/ifCond}}
-    
-
-</section>
-</div>
-
 </section>
