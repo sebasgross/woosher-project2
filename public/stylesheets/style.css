@@ -229,7 +229,7 @@ a {
   margin-top: 20px; }
 
 #pide-woosher a {
-  color: white;
+  color: floralwhite;
   background-color: #5A827F;
   padding: 5px 11px;
   border-style: 2px solid; }
@@ -557,5 +557,32 @@ a {
 
 .request-input:hover {
   font-weight: 700; }
+
+#get-woosher {
+  font-size: 130%;
+  color: floralwhite; }
+
+#get-woosher:hover {
+  color: #f48f30; }
+
+.woosher-button {
+  background-color: floralwhite;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  width: 35%;
+  margin-left: 30px; }
+
+.woosher-button:hover {
+  font-weight: 700;
+  color: #0d4a68; }
+
+.woosher-button a {
+  text-decoration: none;
+  color: #0d4a68; }
+
+.woosher-button a:hover {
+  text-decoration: none;
+  color: #0d4a68; }
 
 /*# sourceMappingURL=style.css.map */

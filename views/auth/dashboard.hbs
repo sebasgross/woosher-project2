@@ -28,10 +28,14 @@
     <div class="services-div">
 
         {{#ifCond user.role "USUARIO"}}
+
+               <a id="get-woosher"href="service/new" > <b>Get your Woosher now!</b></a>
             <p>
                 <b>You want to earn money with Woosh?</b>
-                <a href="/become-woosher" type="button">Become a Woosher</a>
+               <button class="woosher-button"><a href="/become-woosher">Become a Woosher</a></button>
+    
             </p>
+            <hr>
         {{else}}
             <div class="active-orders">
                     <p>See all Woosher requests </p>
@@ -47,7 +51,7 @@
                         {{else}}
                             <p>Dont wait to long {{service.username}} </p><br>
                             <p><b>{{service.woosher.name}}</b> is taking care of your order</p><br>
-                            <p>Order being delivered to:<b> {{service.user.location.address}}</b> </p>
+                            <p><b>Order being delivered to:</b> {{service.user.location.address}} </p>
                         {{/if}}
                     {{/if}}
                 {{/if}}
@@ -66,12 +70,11 @@
                 {{#if service.clothesPicked }}
                     {{#if service.active}}
                     {{else}}
-                        <p>Your order  has been delivered</p>
+                        <p style="color:rgb(244, 143, 48); text-decoration: underline">Your order  has been delivered</p>
                     {{/if}}
                 {{/if}}
-
         {{/each}}
-
+                
         {{#ifCond user.role "WOOSHER"}}
             <div class="active-orders">
                 <p>Check all <b>your</b> active orders.</p>
