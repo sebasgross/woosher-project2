@@ -175,17 +175,6 @@ a {
   height: 500px;
   width: 500px; }
 
-.statusPage {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; }
-
-.status-container {
-  margin: 2px;
-  border: 1px solid black;
-  width: 200px;
-  height: 160px; }
-
 .woosh-logo {
   min-height: 50px;
   max-height: 100px;
@@ -267,11 +256,9 @@ a {
   padding: 2%; }
 
 .active-orders {
-  border: 1px solid black;
-  height: 100px;
-  width: 420px;
-  padding: 2px;
-  margin: 2px; }
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 #navBar {
   height: 12vh;
@@ -363,5 +350,127 @@ a {
 #editProfile {
   height: 50px;
   width: 100px; }
+
+.dashboard-container {
+  display: flex;
+  justify-content: space-around; }
+
+.user-div, .services-div {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: #0d4a68;
+  color: floralwhite;
+  border-radius: 20px;
+  padding: 30px; }
+
+.dashboardTitle {
+  margin-left: 35%;
+  font-size: 60px;
+  font-weight: 800;
+  color: #0d4a68; }
+
+.user-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh; }
+
+.user-div img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px; }
+
+.user-div button {
+  background-color: floralwhite;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 60%; }
+
+.user-div a {
+  text-decoration: none;
+  color: #0d4a68; }
+
+.user-div a:hover {
+  text-decoration: none;
+  color: #0d4a68; }
+
+.user-div button:hover {
+  font-weight: 700; }
+
+.user-div h3 {
+  color: floralwhite;
+  margin: 0; }
+
+.user-div p {
+  color: floralwhite;
+  margin: 0; }
+
+.user-div h4 {
+  color: #abecfc;
+  margin: 0; }
+
+.active-orders button {
+  background-color: floralwhite;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 60%; }
+
+.active-orders a {
+  text-decoration: none;
+  color: #0d4a68; }
+
+.active-orders button:hover {
+  font-weight: 700; }
+
+.active-orders a:hover {
+  text-decoration: none;
+  color: #0d4a68; }
+
+.status-h2 {
+  margin-left: 23%;
+  font-size: 60px;
+  font-weight: 800;
+  color: #0d4a68;
+  margin-bottom: 100px; }
+
+.status-button {
+  background-color: #0d4a68;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 80%; }
+
+.status-button:hover {
+  font-weight: 700;
+  color: floralwhite; }
+
+.status-button a {
+  text-decoration: none;
+  color: floralwhite; }
+
+.status-button a:hover {
+  text-decoration: none;
+  color: floralwhite; }
+
+.status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  border: 2px solid #0d4a68;
+  padding: 20px;
+  border-radius: 15px; }
+
+.statusPage {
+  display: flex;
+  justify-content: space-around; }
+
+.detail-request {
+  display: flex;
+  justify-content: space-around; }
 
 /*# sourceMappingURL=style.css.map */

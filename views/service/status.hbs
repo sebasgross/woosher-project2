@@ -10,21 +10,21 @@
     {{/if}}
 </nav>
 
-<h2>Request near by</h2>
+<h2 class="status-h2">Open requests near by</h2>
 <section class="statusPage">
 {{#each services as |service|}}
 <section class="status-container">
 
 {{#if service.addressTo.coordinates}}
 
-<p>Ya un Woosher acepto el pedido</p>
+<p class="status-p">Woosher has already accepted this request</p>
 {{/if}}
 {{#if service.active}}
 {{else}}
-<p>{{service.username}}</p>
-<p>{{addressFrom.address}}</p>
+<p class="status-p">{{service.username}}</p>
+<p class="status-p">{{addressFrom.address}}</p>
 
-<a href="/service/detail/{{service._id}}">Check route</a>
+<button class="status-button"><a href="/service/detail/{{service._id}}">Check route</a></button>
 
 {{/if}}
 </section>
