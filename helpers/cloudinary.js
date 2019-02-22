@@ -8,7 +8,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET,
 })
 
-const storage = cloudinaryStorage({
+var storage = cloudinaryStorage({
   cloudinary: cloudinary,
   folder: 'Whoosher', 
   allowedFormats: ['jpg', 'png','*'],

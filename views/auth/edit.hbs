@@ -11,21 +11,21 @@
 
     <div clas="signup-card">
         <div class="row">
-            <form class="col s12" action="/signup" method="POST" enctype="multipart/form-data">
+            <form class="col s12" action="/edit/{{_id}}" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input  type="text" class="validate" name="name">
+                        <input  type="text" class="validate" name="name" value="{{name}}">
                         <label for="first_name">First Name</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate" name="lastName">
+                        <input id="last_name" type="text" class="validate" name="lastName" value="{{lastName}}">
                         <label for="last_name">Last Name</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12 ">
-                        <input id="email" type="email" class="validate" name="email">
+                        <input id="email" type="email" class="validate" name="email" value="{{email}}">
                         <label for="email">Email</label>
                     </div>
                 </div>

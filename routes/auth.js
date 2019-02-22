@@ -2,6 +2,10 @@ const router = require('express').Router()
 const User = require('../models/User')
 const passport = require('passport')
 const Service = require('../models/Service')
+const uploadCloud = require('../helpers/cloudinary')
+
+const multer = require('multer')
+const upload = multer({dest: './public/uploads'})
 
 const isWoosher = (req, res, next) => {
   if (!req.user) return res.redirect('/')
@@ -28,10 +32,13 @@ router.get('/signup', isLogged2, (req, res, next) => {
     res.render('auth/signup')
 })
 
-router.post('/signup', (req, res, next) => {
+router.post('/signup', uploadCloud.single('photoURL') ,(req, res, next) => {
 
   if (req.body.password != req.body.password2) {
     return res.render('auth/signup', { error: 'Please type the same password' })
+  }
+  if(req.file){
+    req.body.photoURL = req.file.secure_url
   }
   
   req.body.location= {
@@ -107,7 +114,31 @@ router.post('/become-woosher',(req,res,next)=>{
 .catch((e)=>console.log(e))
 
 })
+router.get('/edit/:id',isLogged,(req,res,next)=>{
+  const {id} = req.params
+  User.findById(id)
+  .then(user => {
+    res.render('auth/edit', user)
+    })
+  .catch(err => {
+    res.send(err)
+  })
+})
 
+router.post('/edit/:id',uploadCloud.single('photoURL'), (req, res, next) => {
+  const {id} = req.params
+  if(req.file){
+    req.body.photoURL = req.file.secure_url
+  }
+  
+  User.findByIdAndUpdate(id, req.body,{new: true})
+  .then((us) => {
+    res.redirect(`/dashboard`)
+  })
+  .catch(err => {
+    res.send(err)
+  })
+})
 
 router.get('/logout', (req, res, next) => {
   req.logOut()
