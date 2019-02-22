@@ -471,6 +471,51 @@ a {
 
 .detail-request {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  flex-direction: row; }
+
+.heading-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin-top: 13%; }
+
+.heading-detail button {
+  background-color: #0d4a68;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 80%;
+  margin: 10px; }
+
+.heading-detail button:hover {
+  font-weight: 700;
+  color: floralwhite; }
+
+.heading-detail a {
+  text-decoration: none;
+  color: floralwhite; }
+
+.heading-detail a:hover {
+  text-decoration: none;
+  color: floralwhite; }
+
+.detail-main-p {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 600; }
+
+.request-input {
+  background-color: #0d4a68;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  margin: 10px;
+  color: floralwhite; }
+
+.request-input:hover {
+  font-weight: 700; }
 
 /*# sourceMappingURL=style.css.map */

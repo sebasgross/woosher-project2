@@ -12,24 +12,24 @@
 
 <section class="detail-request">
       <div class="heading-detail">
-        <h4>{{service.username}} is requesting a Woosher</h4>
-        <p>Is it close to you? Go for it!</pac>
+        <p class="detail-main-p">{{service.username}} is requesting a Woosher</p>
+          <p>Is it close to you? <b>Go for it!</b></pac>
         <p class="time"></p>
           {{#if service.active}}
           <form action="/service/detail/{{service._id}}" method="POST">
           <input type="text" name='clothesPicked' value="true" hidden>
-          <input id="desactivar-request" type="submit" value="Estoy Afuera, dame tu ropa sucia">
+          <input class="request-input" id="desactivar-request" type="submit" value="At address waiting for laundry">
         </form>
           {{else}}
         <form action="/service/detail/{{service._id}}" method="POST">
           <input type="text" name='active' value="true" hidden>
-          <input id="activar-request" type="submit" value="Accept request">
+          <input class="request-input" id="activar-request" type="submit" value="Accept request">
         </form>
           {{/if}}
           {{#if service.clothesPicked}}
             <form action="/service/detail/{{service._id}}" method="POST">
           <input type="text" name='active' value="false" hidden>
-          <input id="desactivar-request" type="submit" value="LLegue con tu ropa!">
+          <input class="request-input" id="desactivar-request" type="submit" value="Clothes are back!">
         </form>
         {{/if}}
         <button><a href='/service/status'>Go back</a></button>
