@@ -135,7 +135,7 @@ color: rgb(13, 74, 104);
   justify-content: center;
   padding: 2px;
   width: 620px;
-  height: 680px;
+  height: 580px;
   color: rgb(13, 74, 104);
   font-size: 80%;
 }
@@ -426,4 +426,48 @@ color: rgb(13, 74, 104);
 #editProfile{
   height: 50px;
   width: 100px;
+}
+#take-detail{
+  background-color: #0d4a68;
+  padding: 2px;
+  color: #c9af98;
+  font-size: 80%;
+}
+.authorize-container{
+  margin-top: 20vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form{
+  display: flex;
+  border-radius: 6px;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  height: 40vh;
+  width: 30vw;
+}
+
+#do-you-want{
+  margin-bottom: -1vh;
+}
+
+#smaller-p{
+  font-size: 12px;
+  margin-top: -1vh;
+} 
+.card-header{
+  text-transform: capitalize;
+  font-size: 180%;
+}
+.card{
+  height: 260px;
+  width: 550px;
+  padding: 10px;
+ 
 }
